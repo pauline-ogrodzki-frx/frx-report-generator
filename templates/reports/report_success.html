@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card">
+
+    <h1>✓ Report Generated Successfully</h1>
+
+    <p>
+        The FRX microbiome report has been generated and stored successfully.
+    </p>
+
+</div>
+
+<div class="card">
+
+    <h2>Report Information</h2>
+
+    <table>
+        <tr>
+            <th>Kit ID</th>
+            <td>{{ report.kit_id }}</td>
+        </tr>
+
+        <tr>
+            <th>Patient Name</th>
+            <td>{{ report.patient_name }}</td>
+        </tr>
+
+        <tr>
+            <th>Physician Name</th>
+            <td>{{ report.physician_name }}</td>
+        </tr>
+
+        <tr>
+            <th>Sampling Date</th>
+            <td>{{ report.sampling_date }}</td>
+        </tr>
+
+        <tr>
+            <th>Enterotype</th>
+            <td>{{ report.enterotype }}</td>
+        </tr>
+
+        <tr>
+            <th>Status</th>
+            <td>
+                <span class="badge badge-success">
+                    {{ report.get_status_display }}
+                </span>
+            </td>
+        </tr>
+
+    </table>
+
+</div>
+
+<div class="card">
+
+    <h2>Actions</h2>
+
+    {% if report.generated_pdf.pdf_file %}
+        <a
+            class="button"
+            href="{{ report.generated_pdf.pdf_file.url }}"
+            target="_blank"
+        >
+            Download PDF Report
+        </a>
+    {% endif %}
+
+    <a
+        class="button secondary"
+        href="{% url 'report_detail' report.id %}"
+    >
+        View Report Details
+    </a>
+
+    <a
+        class="button secondary"
+        href="{% url 'create_report' %}"
+    >
+        Generate Another Report
+    </a>
+
+</div>
+
+{% if report.missing_taxa.count > 0 %}
+<div class="card">
+
+    <h2>Missing Taxa Detected</h2>
+
+    <p>
+        {{ report.missing_taxa.count }}
+        missing taxa definitions were detected during enrichment.
+    </p>
+
+    <a
+        class="button secondary"
+        href="{% url 'missing_taxa_dashboard' %}"
+    >
+        Review Missing Taxa
+    </a>
+
+</div>
+{% endif %}
+
+{% endblock %}

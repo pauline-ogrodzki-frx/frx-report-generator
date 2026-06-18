@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Missing Taxon Detail</h1>
+
+<h2>{{ taxonomy_name }}</h2>
+
+<p>
+    <a href="{% url 'missing_taxa_dashboard' %}">Back to Missing Taxa Dashboard</a>
+</p>
+
+<form method="post" action="{% url 'mark_missing_taxon_resolved' taxonomy_name %}">
+    {% csrf_token %}
+    <button type="submit">
+        Mark All as Resolved
+    </button>
+</form>
+
+<p>
+    <a href="{% url 'create_taxon_definition_from_missing' taxonomy_name %}">
+        Create Taxon Definition
+    </a>
+</p>
+
+<br>
+
+<table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Report</th>
+            <th>Kit ID</th>
+            <th>Patient</th>
+            <th>Report Type</th>
+            <th>Detected Abundance</th>
+            <th>Resolved</th>
+            <th>Reviewed By</th>
+            <th>Reviewed At</th>
+            <th>View Report</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for item in missing_taxa %}
+            <tr>
+                <td>{{ item.report }}</td>
+                <td>{{ item.report.kit_id }}</td>
+                <td>{{ item.report.patient_name }}</td>
+                <td>{{ item.report.report_type.name }}</td>
+                <td>{{ item.detected_abundance }}</td>
+                <td>{{ item.resolved }}</td>
+                <td>{{ item.reviewed_by }}</td>
+                <td>{{ item.reviewed_at|date:"d M Y H:i" }}</td>
+                <td>
+                    <a href="{% url 'report_detail' item.report.id %}">
+                        View
+                    </a>
+                </td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="9">No records found for this taxon.</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

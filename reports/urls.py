@@ -1,0 +1,61 @@
+from django.urls import path
+
+from .views import (
+    create_report,
+    report_success,
+    report_history,
+    report_detail,
+    missing_taxa_dashboard,
+    missing_taxon_detail,
+    mark_missing_taxon_resolved,
+    create_taxon_definition_from_missing,
+    platform_dashboard,
+)
+
+urlpatterns = [
+    path(
+        "",
+        platform_dashboard,
+        name="platform_dashboard",
+    ),
+    path(
+        "new/",
+        create_report,
+        name="create_report",
+    ),
+    path(
+        "<int:report_id>/success/",
+        report_success,
+        name="report_success",
+    ),
+    path(
+        "history/",
+        report_history,
+        name="report_history",
+    ),
+    path(
+        "missing-taxa/",
+        missing_taxa_dashboard,
+        name="missing_taxa_dashboard",
+    ),
+    path(
+        "missing-taxa/<path:taxonomy_name>/resolve/",
+        mark_missing_taxon_resolved,
+        name="mark_missing_taxon_resolved",
+    ),
+    path(
+        "missing-taxa/<path:taxonomy_name>/create-definition/",
+        create_taxon_definition_from_missing,
+        name="create_taxon_definition_from_missing",
+    ),
+    path(
+        "missing-taxa/<path:taxonomy_name>/",
+        missing_taxon_detail,
+        name="missing_taxon_detail",
+    ),
+    path(
+        "<int:report_id>/",
+        report_detail,
+        name="report_detail",
+    ),
+]

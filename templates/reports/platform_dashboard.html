@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="page-header">
+    <h1>FRX Report Generator Dashboard</h1>
+    <p>Generate reports, review previous outputs, resolve missing taxa, and manage the FRX knowledge base.</p>
+</div>
+
+<div class="card-grid">
+    <div class="card stat-card">
+        <strong>Total Reports</strong>
+        <div class="stat">{{ total_reports }}</div>
+    </div>
+
+    <div class="card stat-card">
+        <strong>Completed Reports</strong>
+        <div class="stat">{{ completed_reports }}</div>
+    </div>
+
+    <div class="card stat-card">
+        <strong>Unresolved Missing Taxa</strong>
+        <div class="stat">{{ unresolved_taxa }}</div>
+    </div>
+</div>
+
+<div class="dashboard-actions">
+    <div class="card action-card">
+        <h2>Create Report</h2>
+        <p>Upload microbiome CSV files and generate a new FRX report.</p>
+        <a class="button" href="{% url 'create_report' %}">Create Report</a>
+    </div>
+
+    <div class="card action-card">
+        <h2>Report History</h2>
+        <p>Search, review, and download previously generated reports.</p>
+        <a class="button secondary" href="{% url 'report_history' %}">View History</a>
+    </div>
+
+    <div class="card action-card">
+        <h2>Missing Taxa</h2>
+        <p>Review taxa missing from the FRX knowledge base and resolve definitions.</p>
+        <a class="button secondary" href="{% url 'missing_taxa_dashboard' %}">Review Taxa</a>
+    </div>
+
+    <div class="card action-card">
+        <h2>Knowledge Base</h2>
+        <p>Manage microorganism definitions used during report generation.</p>
+        <a class="button secondary" href="{% url 'knowledge_dashboard' %}">Open Knowledge Base</a>
+    </div>
+</div>
+
+<div class="card">
+    <h2>Recent Reports</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Created</th>
+                <th>Kit ID</th>
+                <th>Patient</th>
+                <th>Status</th>
+                <th>View</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for report in recent_reports %}
+                <tr>
+                    <td>{{ report.created_at|date:"d M Y H:i" }}</td>
+                    <td>{{ report.kit_id }}</td>
+                    <td>{{ report.patient_name }}</td>
+                    <td>{{ report.get_status_display }}</td>
+                    <td>
+                        <a href="{% url 'report_detail' report.id %}">View</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5">No reports created yet.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

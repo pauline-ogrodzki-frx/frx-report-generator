@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Knowledge Base Dashboard</h1>
+
+<div style="display:flex; gap:40px; margin-bottom:30px;">
+
+    <div>
+        <strong>Total Taxa Definitions</strong><br>
+        {{ total_taxa }}
+    </div>
+
+    <div>
+        <strong>With FRX Description</strong><br>
+        {{ taxa_with_frx_description }}
+    </div>
+
+    <div>
+        <strong>Missing FRX Description</strong><br>
+        {{ taxa_missing_frx_description }}
+    </div>
+
+</div>
+
+<hr>
+
+<h2>Recently Updated Taxa</h2>
+
+<table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Organism</th>
+            <th>Updated</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for taxon in recently_updated %}
+            <tr>
+                <td>{{ taxon.organism }}</td>
+                <td>{{ taxon.updated_at }}</td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="2">
+                    No taxa found.
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

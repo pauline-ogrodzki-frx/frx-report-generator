@@ -1,0 +1,1170 @@
+[
+  {
+    "name": "Shannon diversity",
+    "category_title": "Microbiome Diversity",
+    "Super category": "First page",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Host DNA",
+    "category_title": "Host DNA",
+    "Super category": "First page",
+    "Percentage": "TRUE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Bacteroides",
+    "category_title": "Enterotype",
+    "Super category": "First page",
+    "Percentage": "",
+    "Italics": "",
+    "Comments": "It is the most common enterotype in developed countries. It is dominated by species like Bacteroides, Phocaeicola, or Parabacteroides and often observed in individuals who eat mostly animal-based foods & with lower consumption of plant-based foods.\nThe Bacteroides enterotype tends to have higher levels of Bifidobacterium species, and compared to other enterotypes, has the highest potential to produce vitamin B12 and biotin (vitamin B7).\nStudies have shown that gut types respond differently to dietary interventions. While fiber-rich foods are beneficial for everyone, if trying to lose weight, the Bacteroides enterotype may not benefit much from a fiber-rich diet.\n\nThere are two subtypes in the Bacteroides enterotype, named Bact1 and Bact2. \nThe Bact2 subtype has three main characteristics in terms of microbiome composition: 1) top species include Bacteroides fragilis, Phocaeicola vulgatus, and Parabacteroides distasonis; 2) lower diversity; and 3) very low levels of Faecalibacterium prausnitzii. This subtype is more often seen in individuals with obesity, insulin resistance, or inflammatory conditions such as IBD and multiple sclerosis."
+  },
+  {
+    "name": "Prevotella",
+    "category_title": "Enterotype",
+    "Super category": "First page",
+    "Percentage": "",
+    "Italics": "",
+    "Comments": "This is an uncommon enterotype in developed countries. It is frequently dominated by Prevotella copri and is often observed in individuals that eat a lot of plant fiber-rich foods.\nDifferent strains of P. copri have different food preferences; while some strains may be very good at digesting fibers in plant-based foods, others may not be so good. This variable nature of P. copri may explain the different and sometimes contradictory health associations that studies have found for this enterotype. Prevotella species have been positively associated with the production of beneficial SCFAs, improved glucose metabolism, anti-inflammatory effects, effective weight loss or maintenance when on a high-fiber diet (especially with fibers found in cereal grains), and lower cholesterol.\nHowever some studies have also associated P. copri with, inflammatory conditions, and insulin resistance and glucose intolerance.\nIn any case, the Prevotella enterotype is often seen in people with non-Western and/or fiber-rich diets heavy in plant-based foods. This enterotype has the highest potential to digest cellulose."
+  },
+  {
+    "name": "Ruminococcaceae",
+    "category_title": "Enterotype",
+    "Super category": "First page",
+    "Percentage": "",
+    "Italics": "",
+    "Comments": "In Western countries, the Ruminococcaceae enterotype is less common than the Prevotella and Bacteroides enterotypes. It is dominated by species like Ruminococcus, Ruminiclostridium, and Faecalibacterium, which are good at breaking down fiber from carbohydrates to produce beneficial SCFAs. Some species also feed on acetate produced by other bacteria, and transform it into butyrate.\nNot many studies have explored how the Ruminococcaceae enterotype responds to dietary or supplement interventions. However, due to its ability to break down carbohydrates, the Ruminococcaceae enterotype could make it easy to gain weight if eating too many carbs, due to increased nutrient availability and absorption."
+  },
+  {
+    "name": "Lachnospiraceae",
+    "category_title": "Enterotype",
+    "Super category": "First page",
+    "Percentage": "",
+    "Italics": "",
+    "Comments": "Found in 35% of adults, this is one of the most common enterotype in Western countries. It is often dominated by species like Anaerostipes, Blautia, and Roseburia, which are good at digesting plant fibers such as starch, inulin and pectin. From these, Lachnospiraceae produce beneficial SCFAs like butyrate. That said, the ability to digest fiber and produce SCFAs varies depending on the species."
+  },
+  {
+    "name": "Bifidobacterium",
+    "category_title": "Enterotype",
+    "Super category": "First page",
+    "Percentage": "",
+    "Italics": "",
+    "Comments": "As the name suggests, this enterotype is dominated by beneficial Bifidobacterium species. It is usually observed in many toddlers and some children. It is hence is characterized as an immature gut community and is rarely found in adults. Common species that dominate this gut type are Bifidobacterium adolescentis and Bifidobacterium catenulatum. Compared to the Bacteroides and Prevotella enterotypes, the Bifidobacterium gut type has lower diversity. As this enterotype is considered to be more immature, it may not be able to properly digest complex carbohydrates typical of an adult diet. It is unclear what this means for adults.\nThis enterotype is better than other ones at producing branched-chain amino acids (BCAAs), which are essential for building protein in muscle cells.\nAn adult with a Bifidobacterium enterotype should try to diversify their gut microbiome. Even if Bifidobacterium are beneficial bacteria, it is not ideal that they dominate the gut."
+  },
+  {
+    "name": "Other",
+    "category_title": "Enterotype",
+    "Super category": "First page",
+    "Percentage": "",
+    "Italics": "",
+    "Comments": "Instead of being dominated by Bacteroides, Prevotella, Ruminococcaceae, Lachnospiraceae, or Bifidobacterium, the ‘Other’ enterotype has higher levels of a variety of species that don’t fit in the main categories. Having this enterotype is not a bad thing; in fact, its high diversity may be beneficial for gut health and is observed in a relatively high percentage of the population."
+  },
+  {
+    "name": "Enterobacteriaceae",
+    "category_title": "Enterotype",
+    "Super category": "First page",
+    "Percentage": "",
+    "Italics": "",
+    "Comments": "This is a rare gut type that only a couple of studies have identified in Asian populations. It has high levels of potentialy pathogenic bacteria such as Escherichia, Klebsiella, Salmonella, Citrobacter, Enterobacter and Raoultella, which could be a temporary state.\nOne of the studies reported that compared to individuals with a Bacteroides or Prevotella enterotypes, those with an Enterobacteriaceae enterotype ate a higher amount of red meat and had quicker transit times. \nIt’s also possible for this enterotype to be the result of a recent gut infection or antibiotic treatment. Some of the top antibiotic-resistant bacteria are species of Escherichia and Klebsiella. If this is the case, it should be possible for this enterotype to shift to a different composition after recovery, potentially helped by probiotics or other supplements."
+  },
+  {
+    "name": "Type 1a",
+    "category_title": "Enterotype",
+    "Super category": "First page",
+    "Percentage": "",
+    "Italics": "",
+    "Comments": "Infant Enterotype 1 - Bifidobacterium-dominated. Subtype A: medium or high Bifidobacterium. \nIdeally, Bifidobacterium species are present in the infant’s gut from birth onward, although we would expect higher levels in infants and children under the age of three. Infant Enterotype 1 is linked to a vaginal birth with few medical interventions and breastfeeding. Breastfeeding has a significant impact on the development of Bifidobacterium. Within a couple of weeks of breastfeeding, a baby born via C-section can have comparable levels of Bifidobacterium as a baby born vaginally. As long as the infant is breastfed, Bifidobacterium will generally remain high in their gut during their first 6 months of life. This is important because low levels of Bifidobacterium in babies are linked to chronic diseases, including autoimmunity, asthma, and obesity."
+  },
+  {
+    "name": "Type 1b",
+    "category_title": "Enterotype",
+    "Super category": "First page",
+    "Percentage": "",
+    "Italics": "",
+    "Comments": "Infant Enterotype 1 - Bifidobacterium-dominated. Subtype B: low Bifidobacterium. \nIdeally, Bifidobacterium species are present in the infant’s gut from birth onward, although we would expect higher levels in infants and children under the age of three. Infant Enterotype 1 is linked to a vaginal birth with few medical interventions and breastfeeding. Breastfeeding has a significant impact on the development of Bifidobacterium. Within a couple of weeks of breastfeeding, a baby born via C-section can have comparable levels of Bifidobacterium as a baby born vaginally. As long as the infant is breastfed, Bifidobacterium will generally remain high in their gut during their first 6 months of life. This is important because low levels of Bifidobacterium in babies are linked to chronic diseases, including autoimmunity, asthma, and obesity."
+  },
+  {
+    "name": "Type 2a",
+    "category_title": "Enterotype",
+    "Super category": "First page",
+    "Percentage": "",
+    "Italics": "",
+    "Comments": "Infant Enterotype 2 - Bacteroidaceae-dominated. Subtype A: medium or high Bifidobacterium. \nBacteroidaceae are generally beneficial gut bacteria and they’re found in almost all individuals. Some species of Bacteroidaceae can degrade some of the sugars in breastmilk (HMOs) but they may not be as efficient as Bifidobacterium in breaking down all types of HMOs. This enterotype is linked to vaginal births, and may help prepare the infant’s gut for the introduction of solid food. Together with Bifidobacterium, Bacteroidaceae play a major role in the early gut microbiome development. It is important to note that Bacteroides are absent in almost all infants born by C-section delivery and are particularly affected by antibiotics given to the mom either before or during labor. If and when possible, we advocate for an antibiotic-free vaginal birth so that the infant’s gut can shelter the best bacteria possible."
+  },
+  {
+    "name": "Type 2b",
+    "category_title": "Enterotype",
+    "Super category": "First page",
+    "Percentage": "",
+    "Italics": "",
+    "Comments": "Infant Enterotype 2 - Bacteroidaceae-dominated. Subtype B: low Bifidobacterium. \nBacteroidaceae are generally beneficial gut bacteria and they’re found in almost all individuals. Some species of Bacteroidaceae can degrade some of the sugars in breastmilk (HMOs) but they may not be as efficient as Bifidobacterium in breaking down all types of HMOs. This enterotype is linked to vaginal births, and may help prepare the infant’s gut for the introduction of solid food. Together with Bifidobacterium, Bacteroidaceae play a major role in the early gut microbiome development. It is important to note that Bacteroides are absent in almost all infants born by C-section delivery and are particularly affected by antibiotics given to the mom either before or during labor. If and when possible, we advocate for an antibiotic-free vaginal birth so that the infant’s gut can shelter the best bacteria possible."
+  },
+  {
+    "name": "Type 3a",
+    "category_title": "Enterotype",
+    "Super category": "First page",
+    "Percentage": "",
+    "Italics": "",
+    "Comments": "Infant Enterotype 3 - Enterobacteriaceae-dominated. Subtype A: medium or high Bifidobacterium. \nEnterobacteriaceae are bacteria found almost everywhere in nature, including the infant’s gut. Some species are beneficial and even desired in the newborn gut. However, at high enough levels, some Enterobacteriaceae can cause serious problems due to their pro-inflammatory properties. For example, Klebsiella species have been associated with the development of a higher incidence of respiratory infections later in life. Many Enterobacteriaceae species often carry genes related to antibiotic resistance that allow them to survive exposure to antibiotics, and are particularly dangerous in premature babies. Because Enterobacteriaceae are common members of the hospital environment, this enterotype is frequently seen in C-section born babies, vaginal hospital births, and babies born prematurely, who often have to spend extensive time in the hospital."
+  },
+  {
+    "name": "Type 3b",
+    "category_title": "Enterotype",
+    "Super category": "First page",
+    "Percentage": "",
+    "Italics": "",
+    "Comments": "Infant Enterotype 3 - Enterobacteriaceae-dominated. Subtype B: low Bifidobacterium. \nEnterobacteriaceae are bacteria found almost everywhere in nature, including the infant’s gut. Some species are beneficial and even desired in the newborn gut. However, at high enough levels, some Enterobacteriaceae can cause serious problems due to their pro-inflammatory properties. For example, Klebsiella species have been associated with the development of a higher incidence of respiratory infections later in life. Many Enterobacteriaceae species often carry genes related to antibiotic resistance that allow them to survive exposure to antibiotics, and are particularly dangerous in premature babies. Because Enterobacteriaceae are common members of the hospital environment, this enterotype is frequently seen in C-section born babies, vaginal hospital births, and babies born prematurely, who often have to spend extensive time in the hospital."
+  },
+  {
+    "name": "Type 4a",
+    "category_title": "Enterotype",
+    "Super category": "First page",
+    "Percentage": "",
+    "Italics": "",
+    "Comments": "Infant Enterotype 4 - Enterococcus-dominated. Subtype A: medium or high Bifidobacterium. \nSome species of Enterococcus can both beneficial and pathogenic. Either way, if this bacteria dominates the infant’s gut, it’s likely not ideal. This enterotype is linked to both vaginal and C-section births. The presence of Enterococcus faecalis in babies has been associated with respiratory infections, and this bacteria is more likely than others to carry genes related to antibiotic resistance. When these pathogenic species dominate the infant’s microbiome, you may want to consider ways of decreasing E. faecalis levels and increasing the levels of beneficial Bifidobacterium. This is not a very common gut type."
+  },
+  {
+    "name": "Type 4b",
+    "category_title": "Enterotype",
+    "Super category": "First page",
+    "Percentage": "",
+    "Italics": "",
+    "Comments": "Infant Enterotype 4 - Enterococcus-dominated. Subtype B: low Bifidobacterium. \nSome species of Enterococcus can both beneficial and pathogenic. Either way, if this bacteria dominates the infant’s gut, it’s likely not ideal. This enterotype is linked to both vaginal and C-section births. The presence of Enterococcus faecalis in babies has been associated with respiratory infections, and this bacteria is more likely than others to carry genes related to antibiotic resistance. When these pathogenic species dominate the infant’s microbiome, you may want to consider ways of decreasing E. faecalis levels and increasing the levels of beneficial Bifidobacterium. This is not a very common gut type."
+  },
+  {
+    "name": "Type 5a",
+    "category_title": "Enterotype",
+    "Super category": "First page",
+    "Percentage": "",
+    "Italics": "",
+    "Comments": "Infant Enterotype 5 - Streptococcus-dominated. Subtype A: medium or high Bifidobacterium. \nStreptococci are mostly found in the mouth, stomach, and small intestine of healthy individuals. They can be a small part of a healthy early-life microbiome community but are not ideal to have as a dominant infant enterotype. Some Streptococcus species may be associated with increased risk for eczema and type I diabetes. This is not a very common gut type."
+  },
+  {
+    "name": "Type 5b",
+    "category_title": "Enterotype",
+    "Super category": "First page",
+    "Percentage": "",
+    "Italics": "",
+    "Comments": "Infant Enterotype 5 - Streptococcus-dominated. Subtype B: low Bifidobacterium. \nStreptococci are mostly found in the mouth, stomach, and small intestine of healthy individuals. They can be a small part of a healthy early-life microbiome community but are not ideal to have as a dominant infant enterotype. Some Streptococcus species may be associated with increased risk for eczema and type I diabetes. This is not a very common gut type."
+  },
+  {
+    "name": "Type 6a",
+    "category_title": "Enterotype",
+    "Super category": "First page",
+    "Percentage": "",
+    "Italics": "",
+    "Comments": "Infant Enterotype 6 - Staphylococcus-dominated. Subtype A: medium or high Bifidobacterium. \nStaphylococcus is mostly found on the skin and is not adapted to live in the infant or adult gut. But these bacteria are sometimes found to colonize the gut of infants born through C-section delivery. It’s important to note that we expect Staphylococcus to decrease quickly throughout the first months of life as it is outcompeted by other species that are better adapted to living in the gut. Colonization of newborn babies with Staphylococcus aureus may increase the risk of infection in early life, and the presence of S. aureus in the nose of children has been associated with asthma. This is not a very common gut type."
+  },
+  {
+    "name": "Type 6b",
+    "category_title": "Enterotype",
+    "Super category": "First page",
+    "Percentage": "",
+    "Italics": "",
+    "Comments": "Infant Enterotype 6 - Staphylococcus-dominated. Subtype B: low Bifidobacterium. \nStaphylococcus is mostly found on the skin and is not adapted to live in the infant or adult gut. But these bacteria are sometimes found to colonize the gut of infants born through C-section delivery. It’s important to note that we expect Staphylococcus to decrease quickly throughout the first months of life as it is outcompeted by other species that are better adapted to living in the gut. Colonization of newborn babies with Staphylococcus aureus may increase the risk of infection in early life, and the presence of S. aureus in the nose of children has been associated with asthma. This is not a very common gut type."
+  },
+  {
+    "name": "Type 7a",
+    "category_title": "Enterotype",
+    "Super category": "First page",
+    "Percentage": "",
+    "Italics": "",
+    "Comments": "Infant Enterotype 7 - Other. Subtype A: medium or high Bifidobacterium. \nSometimes an infant's gut microbiome does not fit into any of the six Infant Enterotypes defined. If an infant is type 7, that means that a high percentage of the bacteria present in their gut are species that we don’t normally see dominating an infant’s gut. Before 6 months, this is quite rare and is usually linked to a C-section birth, vaginal birth with medical interventions, or formula-feeding. If the infant is 6 months or older and Type 7, don’t be alarmed. This Infant Enterotype is a sign that the microbiome has started to diversify. It may be normal if the infant has started solids or weaned from breastmilk, which can take place between 6-9 months."
+  },
+  {
+    "name": "Type 7b",
+    "category_title": "Enterotype",
+    "Super category": "First page",
+    "Percentage": "",
+    "Italics": "",
+    "Comments": "Infant Enterotype 7 - Other. Subtype B: low Bifidobacterium. \nSometimes an infant's gut microbiome does not fit into any of the six Infant Enterotypes defined. If an infant is type 7, that means that a high percentage of the bacteria present in their gut are species that we don’t normally see dominating an infant’s gut. Before 6 months, this is quite rare and is usually linked to a C-section birth, vaginal birth with medical interventions, or formula-feeding. If the infant is 6 months or older and Type 7, don’t be alarmed. This Infant Enterotype is a sign that the microbiome has started to diversify. It may be normal if the infant has started solids or weaned from breastmilk, which can take place between 6-9 months."
+  },
+  {
+    "name": "Firmicutes / Bacteroidota ratio",
+    "category_title": "Gut Ratio",
+    "Super category": "",
+    "Percentage": "",
+    "Italics": "",
+    "Comments": "Re-calculated ratio based on given values"
+  },
+  {
+    "name": "Prevotella / Bacteroides ratio",
+    "category_title": "Gut Ratio",
+    "Super category": "",
+    "Percentage": "",
+    "Italics": "",
+    "Comments": "Re-calculated ratio based on given values"
+  },
+  {
+    "name": "Species Richness",
+    "category_title": "Microbiome Richness",
+    "Super category": "Microbial Abundance",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Bacteroidota",
+    "category_title": "Major Bacterial Phyla",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Firmicutes",
+    "category_title": "Major Bacterial Phyla",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Actinobacteriota",
+    "category_title": "Major Bacterial Phyla",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Proteobacteria",
+    "category_title": "Major Bacterial Phyla",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Fusobacteriota",
+    "category_title": "Major Bacterial Phyla",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Bacteroides",
+    "category_title": "Common Microbiome Members",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Prevotella",
+    "category_title": "Common Microbiome Members",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Phocaeicola dorei",
+    "category_title": "Common Microbiome Members",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Bacteroides fragilis",
+    "category_title": "Common Microbiome Members",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Ruminococcus",
+    "category_title": "Common Microbiome Members",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Ruminococcus gnavus",
+    "category_title": "Common Microbiome Members",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Blautia",
+    "category_title": "Common Microbiome Members",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Roseburia",
+    "category_title": "Common Microbiome Members",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Bifidobacterium longum",
+    "category_title": "Common Probiotic Species",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Bifidobacterium adolescentis",
+    "category_title": "Common Probiotic Species",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Bifidobacterium infantis",
+    "category_title": "Common Probiotic Species",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Limosilactobacillus fermentum",
+    "category_title": "Common Probiotic Species",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Levilactobacillus brevis",
+    "category_title": "Common Probiotic Species",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "HMO-digesting species",
+    "category_title": "Beneficial Bifidobacterium",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Bifidobacterium",
+    "category_title": "Beneficial Bifidobacterium",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Bifidobacterium",
+    "category_title": "Common Probiotic Species",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Bifidobacterium breve",
+    "category_title": "Common Probiotic Species",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Bifidobacterium bifidum",
+    "category_title": "Common Probiotic Species",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Streptococcus thermophilus",
+    "category_title": "Common Probiotic Species",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Lacticaseibacillus rhamnosus",
+    "category_title": "Common Probiotic Species",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Lactiplantibacillus plantarum",
+    "category_title": "Common Probiotic Species",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Bifidobacterium animalis",
+    "category_title": "Common Probiotic Species",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Lactobacillus acidophilus",
+    "category_title": "Common Probiotic Species",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Lacticaseibacillus paracasei",
+    "category_title": "Common Probiotic Species",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Limosilactobacillus reuteri",
+    "category_title": "Common Probiotic Species",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+    {
+    "name": "Lacticaseibacillus casei",
+    "category_title": "Common Probiotic Species",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Akkermansia",
+    "category_title": "Metabolic Health",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Faecalibacterium",
+    "category_title": "Anti-inflammatory Markers",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Streptococcus",
+    "category_title": "Opportunistic Pathogens",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Enterobacteriaceae",
+    "category_title": "Opportunistic Pathogens",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Klebsiella",
+    "category_title": "Opportunistic Pathogens",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Klebsiella pneumoniae",
+    "category_title": "Opportunistic Pathogens",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Klebsiella oxytoca",
+    "category_title": "Opportunistic Pathogens",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Salmonella enterica",
+    "category_title": "Opportunistic Pathogens",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Escherichia coli",
+    "category_title": "Opportunistic Pathogens",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Escherichia flexneri",
+    "category_title": "Opportunistic Pathogens",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Staphylococcus",
+    "category_title": "Opportunistic Pathogens",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Pseudomonas aeruginosa",
+    "category_title": "Opportunistic Pathogens",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Haemophilus influenzae",
+    "category_title": "Opportunistic Pathogens",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Haemophilus parainfluenzae",
+    "category_title": "Opportunistic Pathogens",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Enterococcus faecium",
+    "category_title": "Opportunistic Pathogens",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Enterococcus faecalis",
+    "category_title": "Opportunistic Pathogens",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Candida",
+    "category_title": "Potential Fungal Overgrowth",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Clostridioides difficile",
+    "category_title": "Opportunistic Pathogens",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Acinetobacter baumannii",
+    "category_title": "Opportunistic Pathogens",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Campylobacter",
+    "category_title": "Opportunistic Pathogens",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Helicobacter pylori",
+    "category_title": "Potential Stomach Inflammation",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Blastocystis",
+    "category_title": "Parasites and Infection",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Cryptosporidium",
+    "category_title": "Parasites and Infection",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Entamoeba histolytica",
+    "category_title": "Parasites and Infection",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Entamoeba dispar",
+    "category_title": "Parasites and Infection",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Giardia",
+    "category_title": "Parasites and Infection",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Yersinia enterocolitica",
+    "category_title": "Parasites and Infection",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Vibrio",
+    "category_title": "Parasites and Infection",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Vibrio cholerae",
+    "category_title": "Parasites and Infection",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Cyclospora cayetanensis",
+    "category_title": "Parasites and Infection",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Methanobrevibacter smithii",
+    "category_title": "Methane Producers",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Propionate",
+    "category_title": "Short-Chain Fatty Acids (SCFA) Production",
+    "Super category": "Functional Potential",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Acetate",
+    "category_title": "Short-Chain Fatty Acids (SCFA) Production",
+    "Super category": "Functional Potential",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Butyrate",
+    "category_title": "Short-Chain Fatty Acids (SCFA) Production",
+    "Super category": "Functional Potential",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Fructooligosaccharides",
+    "category_title": "Complex Sugar Digestion",
+    "Super category": "Functional Potential",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Galactooligosaccharides",
+    "category_title": "Complex Sugar Digestion",
+    "Super category": "Functional Potential",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Xylooligosaccharides",
+    "category_title": "Complex Sugar Digestion",
+    "Super category": "Functional Potential",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Isomaltooligosaccharides",
+    "category_title": "Complex Sugar Digestion",
+    "Super category": "Functional Potential",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Cellulose",
+    "category_title": "Fiber Digestion",
+    "Super category": "Functional Potential",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Resistant starch",
+    "category_title": "Fiber Digestion",
+    "Super category": "Functional Potential",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Chitin",
+    "category_title": "Fiber Digestion",
+    "Super category": "Functional Potential",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Pectin",
+    "category_title": "Fiber Digestion",
+    "Super category": "Functional Potential",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Protein breakdown",
+    "category_title": "Protein Breakdown",
+    "Super category": "Functional Potential",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Vitamin B2",
+    "category_title": "Vitamin Production",
+    "Super category": "Functional Potential",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Vitamin B7",
+    "category_title": "Vitamin Production",
+    "Super category": "Functional Potential",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Vitamin B9",
+    "category_title": "Vitamin Production",
+    "Super category": "Functional Potential",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Vitamin B12",
+    "category_title": "Vitamin Production",
+    "Super category": "Functional Potential",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Vitamin K",
+    "category_title": "Vitamin Production",
+    "Super category": "Functional Potential",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Richness index",
+    "category_title": "Antibiotic Resistance Signature",
+    "Super category": "Other metrics",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Abundance index",
+    "category_title": "Antibiotic Resistance Signature",
+    "Super category": "Other metrics",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Histamine index",
+    "category_title": "Microbial Histamine Capacity",
+    "Super category": "Functional Potential",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Hydrogen sulfide index",
+    "category_title": "Hydrogen sulfide index",
+    "Super category": "Other metrics",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Hexa-LPS index",
+    "category_title": "Hexa-LPS index",
+    "Super category": "Other metrics",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Mucus degradation index",
+    "category_title": "Mucus degradation index",
+    "Super category": "Other metrics",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Cryptococcus",
+    "category_title": "Potential Fungal Overgrowth",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Lactobacillaceae",
+    "category_title": "Common Probiotic Species",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Escherichia dysenteriae",
+    "category_title": "Opportunistic Pathogens",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },  
+  {
+    "name": "Citrobacter",
+    "category_title": "Opportunistic Pathogens",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Enterobacter",
+    "category_title": "Opportunistic Pathogens",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Raoultella",
+    "category_title": "Opportunistic Pathogens",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Morganella",
+    "category_title": "Opportunistic Pathogens",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Streptococcus agalactiae (GBS)",
+    "category_title": "Opportunistic Pathogens",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Malassezia",
+    "category_title": "Potential Fungal Overgrowth",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Saccharomyces",
+    "category_title": "Potential Fungal Overgrowth",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Trichophyton",
+    "category_title": "Potential Fungal Overgrowth",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Aspergillus",
+    "category_title": "Potential Fungal Overgrowth",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Microsporum",
+    "category_title": "Potential Fungal Overgrowth",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Saprochaete",
+    "category_title": "Potential Fungal Overgrowth",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Clostridium perfringens",
+    "category_title": "Opportunistic Pathogens",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Rhodotorula",
+    "category_title": "Potential Fungal Overgrowth",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Beta-glucuronidase-producing capacity",
+    "category_title": "Complex Compound Breakdown",
+    "Super category": "Other metrics",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Species Richness",
+    "category_title": "Microbiome Diversity",
+    "Super category": "Other metrics",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "GABA production",
+    "category_title": "Microbial GABA Capacity",
+    "Super category": "Functional Potential",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "GABA breakdown",
+    "category_title": "Microbial GABA Capacity",
+    "Super category": "Functional Potential",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Dorea_A longicatena",
+    "category_title": "Overabundant Species",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Prevotella copri",
+    "category_title": "Overabundant Species",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Bacteroides uniformis",
+    "category_title": "Overabundant Species",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Blautia_A caecimuris",
+    "category_title": "Overabundant Species",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+    {
+    "name": "Phocaeicola vulgatus",
+    "category_title": "Overabundant Species",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Agathobacter rectalis",
+    "category_title": "Overabundant Species",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Escherichia coli_D",
+    "category_title": "Overabundant Species",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "TRUE",
+    "Comments": ""
+  },
+  {
+    "name": "Oral Microbes",
+    "category_title": "Oral Microbes in the Gut",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Gut Resilience Score",
+    "category_title": "Gut Resilience Score",
+    "Super category": "Other metrics",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Unconjugated bile acids",
+    "category_title": "Modified Bile Acid Production Capacity",
+    "Super category": "Functional Potential",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Secondary bile acids",
+    "category_title": "Modified Bile Acid Production Capacity",
+    "Super category": "Functional Potential",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Urolithin-producing species",
+    "category_title": "Mitochondrial Health Support",
+    "Super category": "Microbial Abundance",
+    "Percentage": "TRUE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "p-Cresol",
+    "category_title": "Protein Breakdown",
+    "Super category": "Functional Potential",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Microbiome age",
+    "category_title": "Microbiome Age",
+    "Super category": "Other metrics",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  },
+  {
+    "name": "Oxygen exposure index",
+    "category_title": "Oxygen Exposure Index",
+    "Super category": "Other metrics",
+    "Percentage": "FALSE",
+    "Italics": "FALSE",
+    "Comments": ""
+  }
+]

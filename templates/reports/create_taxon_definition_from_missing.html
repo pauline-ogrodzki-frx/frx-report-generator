@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>
+    {% if existing_definition %}
+        Edit Taxon Definition
+    {% else %}
+        Create Taxon Definition
+    {% endif %}
+</h1>
+
+<h2>{{ taxonomy_name }}</h2>
+
+<p>
+    <a href="{% url 'missing_taxon_detail' taxonomy_name %}">
+        Back to Missing Taxon Detail
+    </a>
+</p>
+
+{% if existing_definition %}
+    <p style="color: red;">
+        A TaxonDefinition already exists for this organism. You can update it below.
+    </p>
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">
+        {% if existing_definition %}
+            Save Updated Definition
+        {% else %}
+            Save Taxon Definition
+        {% endif %}
+    </button>
+</form>
+
+{% endblock %}

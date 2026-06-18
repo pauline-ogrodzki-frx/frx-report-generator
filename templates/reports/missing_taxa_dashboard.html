@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Missing Taxa Dashboard</h1>
+
+<p>Taxa detected in reports but not yet found in the FRX taxon knowledge base.</p>
+
+<p>
+    <a href="{% url 'report_history' %}">Back to Report History</a>
+</p>
+
+<table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Taxonomy Name</th>
+            <th>Reports Affected</th>
+            <th>Highest Detected Abundance</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for taxon in missing_taxa_summary %}
+            <tr>
+                <td>
+                    <a href="{% url 'missing_taxon_detail' taxon.taxonomy_name %}">
+                        {{ taxon.taxonomy_name }}
+                    </a>
+                </td>
+                <td>{{ taxon.report_count }}</td>
+                <td>{{ taxon.highest_abundance }}</td>
+                <td>
+                    {% if taxon.unresolved_count == 0 %}
+                        Resolved
+                    {% else %}
+                        {{ taxon.unresolved_count }} unresolved
+                    {% endif %}
+                </td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="4">No missing taxa found.</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

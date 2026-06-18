@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Create Adult Gut Microbiome Report</h1>
+
+<div class="card">
+    <p>
+        Upload the laboratory metrics CSV and taxa CSV to generate a physician-facing FRX microbiome report.
+    </p>
+</div>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="card">
+        <h2>Patient & Report Information</h2>
+
+        {{ form.kit_id.as_field_group }}
+        {{ form.patient_name.as_field_group }}
+        {{ form.physician_name.as_field_group }}
+        {{ form.sampling_date.as_field_group }}
+        {{ form.enterotype.as_field_group }}
+    </div>
+
+    <div class="card">
+        <h2>Upload Laboratory CSV Files</h2>
+
+        <p>
+            Upload the original metrics CSV and taxa CSV received from the laboratory.
+        </p>
+
+        {{ form.metrics_csv.as_field_group }}
+        {{ form.taxa_csv.as_field_group }}
+    </div>
+
+    <button class="button" type="submit">
+        Generate Report
+    </button>
+
+    <a class="button secondary" href="{% url 'report_history' %}">
+        Cancel
+    </a>
+</form>
+
+{% endblock %}

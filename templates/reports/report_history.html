@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Report History</h1>
+
+<p>Search, review and download previously generated FRX reports.</p>
+
+<div class="card-grid">
+    <div class="card">
+        <strong>Total Reports</strong>
+        <div class="stat">{{ total_reports }}</div>
+    </div>
+
+    <div class="card">
+        <strong>Completed</strong>
+        <div class="stat">{{ completed_reports }}</div>
+    </div>
+
+    <div class="card">
+        <strong>Failed</strong>
+        <div class="stat">{{ failed_reports }}</div>
+    </div>
+</div>
+
+<div class="card">
+    <form method="get">
+        <label for="q"><strong>Search Reports</strong></label>
+        <input
+            type="text"
+            id="q"
+            name="q"
+            placeholder="Search by patient name, kit ID or physician name"
+            value="{{ search_query }}"
+        >
+
+        <label for="status"><strong>Status</strong></label>
+        <select id="status" name="status">
+            <option value="">All statuses</option>
+            <option value="completed" {% if status_filter == "completed" %}selected{% endif %}>Completed</option>
+            <option value="failed" {% if status_filter == "failed" %}selected{% endif %}>Failed</option>
+            <option value="processing" {% if status_filter == "processing" %}selected{% endif %}>Processing</option>
+            <option value="draft" {% if status_filter == "draft" %}selected{% endif %}>Draft</option>
+        </select>
+
+        <br><br>
+
+        <button class="button" type="submit">Apply Filters</button>
+        <a class="button secondary" href="{% url 'report_history' %}">Clear</a>
+    </form>
+</div>
+
+<div class="card">
+    <table>
+        <thead>
+            <tr>
+                <th>Created</th>
+                <th>Kit ID</th>
+                <th>Patient</th>
+                <th>Physician</th>
+                <th>Report Type</th>
+                <th>Status</th>
+                <th>Missing Taxa</th>
+                <th>PDF</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for report in reports %}
+                <tr>
+                    <td>{{ report.created_at|date:"d M Y H:i" }}</td>
+                    <td>{{ report.kit_id }}</td>
+                    <td>{{ report.patient_name }}</td>
+                    <td>{{ report.physician_name }}</td>
+                    <td>{{ report.report_type.name }}</td>
+
+                    <td>
+                        {% if report.status == "completed" %}
+                            <span class="badge badge-success">Completed</span>
+                        {% elif report.status == "failed" %}
+                            <span class="badge badge-error">Failed</span>
+                        {% elif report.status == "processing" %}
+                            <span class="badge badge-warning">Processing</span>
+                        {% else %}
+                            <span class="badge badge-neutral">{{ report.get_status_display }}</span>
+                        {% endif %}
+                    </td>
+
+                    <td>{{ report.missing_taxa.count }}</td>
+
+                    <td>
+                        {% if report.generated_pdf.pdf_file %}
+                            <a class="button secondary" href="{{ report.generated_pdf.pdf_file.url }}" target="_blank">
+                                PDF
+                            </a>
+                        {% else %}
+                            No PDF
+                        {% endif %}
+                    </td>
+
+                    <td>
+                        <a class="button secondary" href="{% url 'report_detail' report.id %}">
+                            View
+                        </a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="9">No reports found.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<p>
+    <a class="button" href="{% url 'create_report' %}">Create New Report</a>
+</p>
+
+{% endblock %}
