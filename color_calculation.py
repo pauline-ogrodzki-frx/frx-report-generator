@@ -3,6 +3,13 @@ import traceback
 from collections import Counter
 import json
 
+
+def print_log(msg: str):
+    try:
+        print(msg)
+    except Exception as e:
+        print("Exception in print_log: {}".format(str(e)))
+
 def read_json(config_file):
     """
     reads json files

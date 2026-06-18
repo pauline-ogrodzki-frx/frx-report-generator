@@ -1,3 +1,4 @@
+import traceback
 import os.path
 import json
 from PIL import Image, ImageDraw
@@ -19,6 +20,12 @@ from color_calculation import *
 from reportlab.pdfgen.canvas import Canvas
 import textwrap
 
+
+def print_log(msg: str):
+    try:
+        print(msg)
+    except Exception as e:
+        print("Exception in print_log: {}".format(str(e)))
 
 def register_fonts():
     """
@@ -181,7 +188,7 @@ def place_page_no(can, page):
 
 def place_dynamic_part(can, page, config):
     fixes_categories = read_json('fixed_color_categories.json')
-    config_data = read_json('сonfig_fields.json')
+    config_data = read_json('config_fields.json')
     register_fonts()
     current_level = 450
     df = pd.read_csv(config['metrics_file'])
@@ -350,7 +357,7 @@ def place_dynamic_part(can, page, config):
 
 def build_images(config):
     fixes_categories = read_json('fixed_color_categories.json')
-    config_data = read_json('сonfig_fields.json')
+    config_data = read_json('config_fields.json')
     df = pd.read_csv(config['metrics_file'])
     print(df)
     groups = df.groupby('category_title', sort=False)
@@ -404,5 +411,6 @@ def build_images(config):
 
 
 
-config = read_json('config.json')
-build_images(config)
+if __name__ == "__main__":
+    config = read_json('config.json')
+    build_images(config)
