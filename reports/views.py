@@ -11,11 +11,11 @@ from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.db.models import Count, Max
 from django.urls import reverse
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, FileResponse, Http404
 
 
 from .forms import ReportCreateForm
-from .models import Report, ReportType, UploadedCSV, MissingTaxonDefinition
+from .models import Report, ReportType, UploadedCSV, MissingTaxonDefinition, GeneratedReport
 from .services.taxa_description_service import enrich_taxa_csv
 from .services.pdf_report_service import generate_pdf_with_existing_builder
 
@@ -340,4 +340,45 @@ def create_taxon_definition_from_missing(request, taxonomy_name):
             "taxonomy_name": taxonomy_name,
             "existing_definition": existing_definition,
         },
+    )
+
+@login_required
+def download_generated_pdf(request, report_id):
+    report = get_object_or_404(Report, id=report_id)
+
+    generated_report = (
+        GeneratedReport.objects
+        .filter(report=report)
+        .order_by("-id")
+        .first()
+    )
+
+    if not generated_report or not generated_report.pdf_file:
+        raise Http404("Generated PDF not found.")
+
+    return FileResponse(
+        generated_report.pdf_file.open("rb"),
+        as_attachment=True,
+        filename=f"{report.kit_id}_FRX_Report.pdf",
+    )
+
+
+@login_required
+def download_processed_taxa_csv(request, report_id):
+    report = get_object_or_404(Report, id=report_id)
+
+    uploaded_csv = (
+        UploadedCSV.objects
+        .filter(report=report)
+        .order_by("-id")
+        .first()
+    )
+
+    if not uploaded_csv or not uploaded_csv.processed_taxa_csv:
+        raise Http404("Processed taxa CSV not found.")
+
+    return FileResponse(
+        uploaded_csv.processed_taxa_csv.open("rb"),
+        as_attachment=True,
+        filename=f"{report.kit_id}_processed_taxa.csv",
     )

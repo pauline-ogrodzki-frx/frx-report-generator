@@ -72,11 +72,7 @@
     <h2>Generated PDF</h2>
 
     {% if report.generated_pdf.pdf_file %}
-        <a
-            class="button"
-            href="{{ report.generated_pdf.pdf_file.url }}"
-            target="_blank"
-        >
+        <a class="button" href="{% url 'download_generated_pdf' report.id %}">
             Download Generated PDF
         </a>
     {% else %}
@@ -116,12 +112,8 @@
             {% endif %}
 
             {% if report.uploaded_csvs.processed_metrics_csv %}
-                <a
-                    class="button secondary"
-                    href="{{ report.uploaded_csvs.processed_metrics_csv.url }}"
-                    target="_blank"
-                >
-                    Processed Metrics CSV
+                <a class="button secondary" href="{% url 'download_processed_taxa_csv' report.id %}">
+                    Download Processed Taxa CSV
                 </a>
             {% endif %}
         </p>
