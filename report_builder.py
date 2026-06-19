@@ -627,7 +627,7 @@ def page3(can, df):
 
     can.setFont('Rob', 7)
 
-    config = read_json('сonfig_fields.json')
+    config = read_json('config_fields.json')
     config_ent = read_json('config.json')
 
     enterotype = config_ent['enterotype']
