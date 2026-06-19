@@ -48,6 +48,13 @@ def generate_pdf_with_existing_builder(
 
     expected_pdf_path = output_folder / f"report_TEST{report.kit_id}.pdf"
 
+    if not expected_pdf_path.exists():
+        available_files = [file.name for file in output_folder.glob("*")]
+        raise FileNotFoundError(
+            f"Expected PDF was not created: {expected_pdf_path}. "
+            f"Files currently in output folder: {available_files}"
+        )
+
     generated_report = GeneratedReport.objects.create(
         report=report,
     )
