@@ -85,35 +85,17 @@
 
     {% if report.uploaded_csvs %}
         <p>
-            <a
-                class="button secondary"
-                href="{{ report.uploaded_csvs.original_metrics_csv.url }}"
-                target="_blank"
-            >
+            <a class="button secondary" href="{% url 'download_original_metrics_csv' report.id %}">
                 Original Metrics CSV
             </a>
 
-            <a
-                class="button secondary"
-                href="{{ report.uploaded_csvs.original_taxa_csv.url }}"
-                target="_blank"
-            >
+            <a class="button secondary" href="{% url 'download_original_taxa_csv' report.id %}">
                 Original Taxa CSV
             </a>
 
             {% if report.uploaded_csvs.processed_taxa_csv %}
-                <a
-                    class="button secondary"
-                    href="{{ report.uploaded_csvs.processed_taxa_csv.url }}"
-                    target="_blank"
-                >
-                    Enriched Taxa CSV
-                </a>
-            {% endif %}
-
-            {% if report.uploaded_csvs.processed_metrics_csv %}
                 <a class="button secondary" href="{% url 'download_processed_taxa_csv' report.id %}">
-                    Download Processed Taxa CSV
+                    Enriched Taxa CSV
                 </a>
             {% endif %}
         </p>

@@ -5,6 +5,7 @@ from knowledge.models import TaxonDefinition
 
 from django.db import models
 from django.core.files import File
+from django.core.files.storage import default_storage
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -353,13 +354,12 @@ def download_generated_pdf(request, report_id):
         .first()
     )
 
-    if not generated_report or not generated_report.pdf_file:
+    if not generated_report:
         raise Http404("Generated PDF not found.")
 
-    return FileResponse(
-        generated_report.pdf_file.open("rb"),
-        as_attachment=True,
-        filename=f"{report.kit_id}_FRX_Report.pdf",
+    return serve_field_file(
+        generated_report.pdf_file,
+        f"{report.kit_id}_FRX_Report.pdf",
     )
 
 
@@ -381,4 +381,45 @@ def download_processed_taxa_csv(request, report_id):
         uploaded_csv.processed_taxa_csv.open("rb"),
         as_attachment=True,
         filename=f"{report.kit_id}_processed_taxa.csv",
+    )
+
+def serve_field_file(field_file, download_name):
+    if not field_file:
+        raise Http404("File not found.")
+
+    if not default_storage.exists(field_file.name):
+        raise Http404("File is missing from storage. It may have been removed during redeploy.")
+
+    return FileResponse(
+        default_storage.open(field_file.name, "rb"),
+        as_attachment=True,
+        filename=download_name,
+    )
+
+
+@login_required
+def download_original_metrics_csv(request, report_id):
+    report = get_object_or_404(Report, id=report_id)
+    uploaded_csv = UploadedCSV.objects.filter(report=report).order_by("-id").first()
+
+    if not uploaded_csv:
+        raise Http404("Uploaded CSV not found.")
+
+    return serve_field_file(
+        uploaded_csv.original_metrics_csv,
+        f"{report.kit_id}_original_metrics.csv",
+    )
+
+
+@login_required
+def download_original_taxa_csv(request, report_id):
+    report = get_object_or_404(Report, id=report_id)
+    uploaded_csv = UploadedCSV.objects.filter(report=report).order_by("-id").first()
+
+    if not uploaded_csv:
+        raise Http404("Uploaded CSV not found.")
+
+    return serve_field_file(
+        uploaded_csv.original_taxa_csv,
+        f"{report.kit_id}_original_taxa.csv",
     )

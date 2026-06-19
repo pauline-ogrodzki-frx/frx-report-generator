@@ -12,6 +12,8 @@ from .views import (
     platform_dashboard,
     download_generated_pdf,
     download_processed_taxa_csv,
+    download_original_metrics_csv,
+    download_original_taxa_csv,
 )
 
 urlpatterns = [
@@ -64,6 +66,16 @@ urlpatterns = [
         "<int:report_id>/download-processed-taxa/",
         download_processed_taxa_csv,
         name="download_processed_taxa_csv",
+    ),
+    path(
+        "<int:report_id>/download-original-metrics/",
+        download_original_metrics_csv,
+        name="download_original_metrics_csv",
+    ),
+    path(
+        "<int:report_id>/download-original-taxa/",
+        download_original_taxa_csv,
+        name="download_original_taxa_csv",
     ),
     path(
         "<int:report_id>/",
