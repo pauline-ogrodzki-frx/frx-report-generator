@@ -2,10 +2,10 @@ from django.db import models
 
 
 class TaxonDefinition(models.Model):
-    organism = models.CharField(max_length=255, unique=True)
+    organism = models.CharField(max_length=1000, unique=True)
 
     phylum = models.CharField(
-        max_length=255,
+        max_length=1000,
         blank=True,
         null=True
     )
