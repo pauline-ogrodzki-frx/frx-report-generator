@@ -60,12 +60,8 @@
     <h2>Actions</h2>
 
     {% if report.generated_pdf.pdf_file %}
-        <a
-            class="button"
-            href="{{ report.generated_pdf.pdf_file.url }}"
-            target="_blank"
-        >
-            Download PDF Report
+        <a class="button" href="{% url 'download_generated_pdf' report.id %}">
+            Download Generated PDF
         </a>
     {% endif %}
 
