@@ -10,7 +10,7 @@ generated_reports/
 staticfiles/
 
 data/*.csv
-data/*.xlsx
+#data/*.xlsx
 
 LOG.txt
 .DS_Store
