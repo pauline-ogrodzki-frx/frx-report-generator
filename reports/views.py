@@ -1,5 +1,8 @@
 from pathlib import Path
 
+import csv
+from io import TextIOWrapper
+
 from knowledge.forms import TaxonDefinitionForm
 from knowledge.models import TaxonDefinition
 
@@ -15,7 +18,7 @@ from django.urls import reverse
 from django.http import HttpResponseRedirect, FileResponse, Http404
 
 
-from .forms import ReportCreateForm
+from .forms import ReportCreateForm, ReportReviewForm
 from .models import Report, ReportType, UploadedCSV, MissingTaxonDefinition, GeneratedReport
 from .services.taxa_description_service import enrich_taxa_csv
 from .services.pdf_report_service import generate_pdf_with_existing_builder
@@ -137,6 +140,85 @@ def create_report(request):
         },
     )
 
+def get_common_probiotic_species_rows(report):
+    uploaded_csv = (
+        UploadedCSV.objects
+        .filter(report=report)
+        .order_by("-id")
+        .first()
+    )
+
+    if not uploaded_csv:
+        return []
+
+    metrics_file = uploaded_csv.original_metrics_csv
+
+    if not metrics_file:
+        return []
+
+    rows = []
+
+    with metrics_file.open("rb") as file:
+        text_file = TextIOWrapper(file, encoding="utf-8")
+        reader = csv.DictReader(text_file)
+
+        for row in reader:
+            category_title = row.get("category_title", "").strip()
+
+            if category_title == "Common Probiotic Species":
+                rows.append(row)
+
+    return rows
+
+@login_required
+def review_report(request, report_id):
+    report = get_object_or_404(Report, id=report_id)
+
+    probiotic_species_rows = get_common_probiotic_species_rows(report)
+
+    if request.method == "POST":
+        form = ReportReviewForm(request.POST, instance=report)
+
+        if form.is_valid():
+            reviewed_report = form.save(commit=False)
+            reviewed_report.review_status = "approved"
+            reviewed_report.reviewed_by = request.user
+            reviewed_report.reviewed_at = timezone.now()
+            reviewed_report.save()
+
+            uploaded_csv = (
+                UploadedCSV.objects
+                .filter(report=report)
+                .order_by("-id")
+                .first()
+            )
+
+            if uploaded_csv and uploaded_csv.processed_taxa_csv:
+                generate_pdf_with_existing_builder(
+                    report=reviewed_report,
+                    metrics_csv_path=uploaded_csv.original_metrics_csv.path,
+                    enriched_taxa_csv_path=uploaded_csv.processed_taxa_csv.path,
+                )
+
+            messages.success(
+                request,
+                "Report reviewed, approved, and final PDF regenerated."
+            )
+
+            return redirect("report_detail", report_id=report.id)
+
+    else:
+        form = ReportReviewForm(instance=report)
+
+    return render(
+        request,
+        "reports/review_report.html",
+        {
+            "report": report,
+            "form": form,
+            "probiotic_species_rows": probiotic_species_rows,
+        },
+    )
 
 @login_required
 def report_success(request, report_id):

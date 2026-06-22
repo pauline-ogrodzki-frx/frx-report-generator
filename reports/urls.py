@@ -2,6 +2,7 @@ from django.urls import path
 
 from .views import (
     create_report,
+    review_report,
     report_success,
     report_history,
     report_detail,
@@ -26,6 +27,11 @@ urlpatterns = [
         "new/",
         create_report,
         name="create_report",
+    ),
+    path(
+        "<int:report_id>/review/",
+        review_report,
+        name="review_report",
     ),
     path(
         "<int:report_id>/success/",

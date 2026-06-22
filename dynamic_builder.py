@@ -187,7 +187,7 @@ def place_page_no(can, page):
 
 
 def place_dynamic_part(can, page, config):
-    fixes_categories = read_json('fixed_color_categories.json')
+    fixes_categories = config.get("fixed_categories", {})
     config_data = read_json('config_fields.json')
     register_fonts()
     current_level = 450
@@ -356,7 +356,7 @@ def place_dynamic_part(can, page, config):
 
 
 def build_images(config):
-    fixes_categories = read_json('fixed_color_categories.json')
+    fixes_categories = config.get("fixed_categories", {})
     config_data = read_json('config_fields.json')
     df = pd.read_csv(config['metrics_file'])
     print(df)

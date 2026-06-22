@@ -7,6 +7,18 @@
 
     <h2>{{ report.kit_id }} - {{ report.patient_name }}</h2>
 
+    <br>
+
+    {% if report.review_status == "approved" %}
+        <span class="badge badge-success">
+            Reviewed & Approved
+        </span>
+    {% else %}
+        <span class="badge badge-warning">
+            Pending Review
+        </span>
+    {% endif %}
+
     {% if report.status == "completed" %}
         <span class="badge badge-success">Completed</span>
     {% elif report.status == "failed" %}
@@ -65,6 +77,47 @@
             <th>Completed</th>
             <td>{{ report.completed_at|date:"d M Y H:i" }}</td>
         </tr>
+        <tr>
+            <th>Review Status</th>
+            <td>
+                {% if report.review_status == "approved" %}
+                    <span class="badge badge-success">
+                        Approved
+                    </span>
+                {% elif report.review_status == "pending_review" %}
+                    <span class="badge badge-warning">
+                        Pending Review
+                    </span>
+                {% else %}
+                    {{ report.get_review_status_display }}
+                {% endif %}
+            </td>
+        </tr>
+
+        <tr>
+            <th>Common Probiotic Species Colour</th>
+            <td>
+                {{ report.probiotic_species_color|default:"Not Selected" }}
+            </td>
+        </tr>
+
+        <tr>
+            <th>Reviewed By</th>
+            <td>
+                {{ report.reviewed_by|default:"-" }}
+            </td>
+        </tr>
+
+        <tr>
+            <th>Reviewed At</th>
+            <td>
+                {% if report.reviewed_at %}
+                    {{ report.reviewed_at|date:"d M Y H:i" }}
+                {% else %}
+                    -
+                {% endif %}
+            </td>
+        </tr>
     </table>
 </div>
 
@@ -73,8 +126,35 @@
 
     {% if report.generated_pdf.pdf_file %}
         <a class="button" href="{% url 'download_generated_pdf' report.id %}">
-            Download Generated PDF
+            {% if report.review_status == "approved" %}
+                Download Approved PDF
+            {% else %}
+                Download Review Draft PDF
+            {% endif %}
         </a>
+
+        <br><br>
+
+        {% if report.review_status == "approved" %}
+            <span class="badge badge-success">
+                Reviewed & Approved
+            </span>
+
+        {% else %}
+            <span class="badge badge-warning">
+                Pending Review
+            </span>
+
+            <br><br>
+
+            <a
+                class="button"
+                href="{% url 'review_report' report.id %}"
+            >
+                Review & Approve Report
+            </a>
+        {% endif %}
+
     {% else %}
         <p>No PDF generated.</p>
     {% endif %}

@@ -27,14 +27,16 @@ def read_json(config_file):
 
 
 
-def get_colormap(file_path):
+def get_colormap(file_path, fixed_categories=None):
     """
-    build a colormap
-    :param file_path:
-    :return:
+    Build a colormap.
+
+    fixed_categories allows Django to override specific report metric colours,
+    replacing the old fixed_color_categories.json workflow.
     """
     try:
-        fixes_categories = read_json('fixed_color_categories.json')
+        fixes_categories = fixed_categories or {}
+
         df = pd.read_csv(file_path)
         df = df[df['range_lower'].le(df['user_value']) & df['range_upper'].ge(df['user_value'])]
         df.rename({'range_color': 'evaluation_color'}, axis=1, inplace=True)
@@ -43,26 +45,28 @@ def get_colormap(file_path):
         df = df[df["category_title"] != "Microbiome Diversity"]
         df = df[df["category_title"] != "Host DNA"]
         df = df[df["category_title"] != "Gut Ratio"]
-    #    df['category_title'] = df['category_title'].replace(
-    #        ['Hydrogen sulfide index', 'Hexa-LPS index', 'Mucus degradation index'], 'Gut Inflammation')
-    #    df['category_title'] = df['category_title'].replace(
-    #        ['Propionate-Producing Capacity', 'Acetate-Producing Capacity', 'Butyrate-Producing Capacity'], 'SCFA production')
 
         results = {}
+
         for i in df.groupby('category_title')["evaluation_color"]:
             key = i[0]
             color = 'green'
             values = list(set(i[1].values.tolist()))
+
             if 'red' in values:
                 color = 'red'
             elif 'orange' in values:
                 color = 'yellow'
+
             results[key] = color
-        for k,v in fixes_categories.items():
-            if k in results.keys():
+
+        for k, v in fixes_categories.items():
+            if k in results.keys() and v:
                 results[k] = v
-                print("Color changed to {}".format(v))
+                print("Color changed for {} to {}".format(k, v))
+
         return results
+
     except Exception as e:
         print("Exception in get_colormap: {}".format(str(e)))
         print(traceback.format_exc())

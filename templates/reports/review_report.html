@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card">
+    <h1>Review & Approve Report</h1>
+    <h2>{{ report.kit_id }} - {{ report.patient_name }}</h2>
+
+    <p>
+        Review the Common Probiotic Species metric below, then select the final FRX-approved colour.
+    </p>
+</div>
+
+<div class="card">
+    <h2>Review Draft PDF</h2>
+
+    {% if report.generated_pdf.pdf_file %}
+        <a class="button secondary" href="{% url 'download_generated_pdf' report.id %}">
+            Download Review Draft PDF
+        </a>
+    {% else %}
+        <p>No draft PDF generated.</p>
+    {% endif %}
+</div>
+
+<div class="card">
+    <h2>Common Probiotic Species Metric</h2>
+
+    {% if probiotic_species_rows %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>User Value</th>
+                    <th>Evaluation</th>
+                    <th>Range Colour</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in probiotic_species_rows %}
+                    <tr>
+                        <td>{{ row.name }}</td>
+                        <td>{{ row.user_value }}</td>
+                        <td>{{ row.evaluation }}</td>
+                        <td>{{ row.range_color }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No Common Probiotic Species metric found in the metrics CSV.</p>
+    {% endif %}
+</div>
+
+<div class="card">
+    <h2>Final Review Decision</h2>
+
+    <form method="post">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit" class="button">
+            Approve & Regenerate Final PDF
+        </button>
+
+        <a href="{% url 'report_detail' report.id %}" class="button secondary">
+            Cancel
+        </a>
+    </form>
+</div>
+
+{% endblock %}

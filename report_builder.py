@@ -365,7 +365,13 @@ def build_pdf_report(config):
         sign = ImageReader('ranges/Host DNA/Host DNA.png')
         can.drawImage(sign, 60, 294 - 50 - 2, 310 - 60, 15, mask='auto')
 
-        color_map = get_colormap(config['metrics_file'])
+        fixed_categories = config.get("fixed_categories", {})
+
+        color_map = get_colormap(
+            config['metrics_file'],
+            fixed_categories=fixed_categories,
+        )
+
         pd_color = df[df['name'] == "Phocaeicola dorei"].iloc[0]['evaluation_color']
         if pd_color == 'red':
             color_map['Overabundant species'] = 'red'

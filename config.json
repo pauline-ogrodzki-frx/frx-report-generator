@@ -1,10 +1,13 @@
 {
     "output_folder": "/Users/paulineogrodzki/Documents/PAULINE PERSONAL/FRX/FRX Report Generator/frx-report-generator/generated_reports",
-    "Physician Name": "Test",
-    "Patient Name": "Test5",
+    "Physician Name": "Dr. P",
+    "Patient Name": "Test Patient 8",
     "Kit ID": "FRXYUD818",
-    "Sampling Date": "2026-06-10",
-    "metrics_file": "/Users/paulineogrodzki/Documents/PAULINE PERSONAL/FRX/FRX Report Generator/frx-report-generator/media/uploads/original_metrics/FRXYUD818_metrics_aJAnA8o.csv",
-    "taxa_file": "/Users/paulineogrodzki/Documents/PAULINE PERSONAL/FRX/FRX Report Generator/frx-report-generator/media/uploads/original_taxa/FRXYUD818_taxa_XqCWjuO_enriched.csv",
-    "enterotype": "Lachnospiraceae"
+    "Sampling Date": "2026-06-05",
+    "metrics_file": "/Users/paulineogrodzki/Documents/PAULINE PERSONAL/FRX/FRX Report Generator/frx-report-generator/media/uploads/original_metrics/FRXYUD818_metrics_ULM20d3.csv",
+    "taxa_file": "/Users/paulineogrodzki/Documents/PAULINE PERSONAL/FRX/FRX Report Generator/frx-report-generator/media/uploads/processed_taxa/FRXYUD818_taxa_PctXUXY_enriched.csv",
+    "enterotype": "Other",
+    "fixed_categories": {
+        "Common Probiotic Species": "yellow"
+    }
 }

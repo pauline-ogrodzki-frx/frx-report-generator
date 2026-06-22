@@ -25,3 +25,15 @@ class ReportCreateForm(forms.ModelForm):
             "sampling_date",
             "enterotype",
         ]
+
+class ReportReviewForm(forms.ModelForm):
+    class Meta:
+        model = Report
+        fields = ["probiotic_species_color"]
+        labels = {
+            "probiotic_species_color": "Common Probiotic Species colour",
+        }
+        help_texts = {
+            "probiotic_species_color": "Select the FRX-reviewed colour for this report before final approval.",
+        }
+

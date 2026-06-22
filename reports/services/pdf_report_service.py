@@ -23,6 +23,11 @@ def generate_pdf_with_existing_builder(
     output_folder = legacy_dir / "generated_reports"
     output_folder.mkdir(exist_ok=True)
 
+    fixed_categories = {}
+
+    if report.probiotic_species_color:
+        fixed_categories["Common Probiotic Species"] = report.probiotic_species_color
+
     config = {
         "output_folder": str(output_folder),
         "Physician Name": report.physician_name or "",
@@ -32,6 +37,7 @@ def generate_pdf_with_existing_builder(
         "metrics_file": str(metrics_csv_path),
         "taxa_file": str(enriched_taxa_csv_path),
         "enterotype": report.enterotype or "LACHNOSPIRACEAE",
+        "fixed_categories": fixed_categories,
     }
 
     config_path = legacy_dir / "config.json"
@@ -54,6 +60,8 @@ def generate_pdf_with_existing_builder(
             f"Expected PDF was not created: {expected_pdf_path}. "
             f"Files currently in output folder: {available_files}"
         )
+
+    GeneratedReport.objects.filter(report=report).delete()
 
     generated_report = GeneratedReport.objects.create(
         report=report,

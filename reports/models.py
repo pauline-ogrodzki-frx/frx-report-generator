@@ -62,6 +62,18 @@ class Report(models.Model):
         (STATUS_FAILED, "Failed"),
     ]
 
+    PROBIOTIC_COLOR_CHOICES = [
+        ("green", "Green"),
+        ("yellow", "Yellow"),
+        ("red", "Red"),
+    ]
+
+    REVIEW_STATUS_CHOICES = [
+        ("draft", "Draft"),
+        ("pending_review", "Pending Review"),
+        ("approved", "Approved"),
+    ]
+
     report_type = models.ForeignKey(
         ReportType,
         on_delete=models.PROTECT,
@@ -110,6 +122,30 @@ class Report(models.Model):
         null=True,
         related_name="generated_reports"
     )
+
+    review_status = models.CharField(
+        max_length=30,
+        choices=REVIEW_STATUS_CHOICES,
+        default="pending_review",
+    )
+
+    probiotic_species_color = models.CharField(
+        max_length=10,
+        choices=PROBIOTIC_COLOR_CHOICES,
+        blank=True,
+        null=True,
+        help_text="Manual FRX reviewer colour for Common Probiotic Species.",
+    )
+
+    reviewed_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="reviewed_reports",
+    )
+
+    reviewed_at = models.DateTimeField(null=True, blank=True)
 
     error_message = models.TextField(blank=True, null=True)
 
