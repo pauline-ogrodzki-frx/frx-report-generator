@@ -1,6 +1,8 @@
 from pathlib import Path
 
 import csv
+import tempfile
+import shutil
 from io import TextIOWrapper
 
 from knowledge.forms import TaxonDefinitionForm
@@ -84,8 +86,15 @@ def create_report(request):
             )
 
             try:
-                metrics_csv_path = uploaded_csv.original_metrics_csv.path
-                taxa_csv_path = uploaded_csv.original_taxa_csv.path
+                metrics_csv_path = field_file_to_temp_path(
+                    uploaded_csv.original_metrics_csv,
+                    suffix=".csv",
+                )
+
+                taxa_csv_path = field_file_to_temp_path(
+                    uploaded_csv.original_taxa_csv,
+                    suffix=".csv",
+                )
 
                 enrichment_result = enrich_taxa_csv(
                     taxa_csv_path=taxa_csv_path,
@@ -194,10 +203,20 @@ def review_report(request, report_id):
             )
 
             if uploaded_csv and uploaded_csv.processed_taxa_csv:
+                metrics_csv_path = field_file_to_temp_path(
+                    uploaded_csv.original_metrics_csv,
+                    suffix=".csv",
+                )
+
+                processed_taxa_csv_path = field_file_to_temp_path(
+                    uploaded_csv.processed_taxa_csv,
+                    suffix=".csv",
+                )
+
                 generate_pdf_with_existing_builder(
                     report=reviewed_report,
-                    metrics_csv_path=uploaded_csv.original_metrics_csv.path,
-                    enriched_taxa_csv_path=uploaded_csv.processed_taxa_csv.path,
+                    metrics_csv_path=metrics_csv_path,
+                    enriched_taxa_csv_path=processed_taxa_csv_path,
                 )
 
             messages.success(
@@ -478,6 +497,18 @@ def serve_field_file(field_file, download_name):
         filename=download_name,
     )
 
+def field_file_to_temp_path(field_file, suffix=".csv"):
+    temp_file = tempfile.NamedTemporaryFile(
+        delete=False,
+        suffix=suffix,
+    )
+
+    with field_file.open("rb") as source_file:
+        shutil.copyfileobj(source_file, temp_file)
+
+    temp_file.close()
+
+    return temp_file.name
 
 @login_required
 def download_original_metrics_csv(request, report_id):
