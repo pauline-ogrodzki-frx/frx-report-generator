@@ -27,6 +27,7 @@ INSTALLED_APPS = [
 
     "reports",
     "knowledge",
+    "storages",
 ]
 
 MIDDLEWARE = [
@@ -100,6 +101,40 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+USE_B2_STORAGE = config(
+    "USE_B2_STORAGE",
+    default=False,
+    cast=bool,
+)
+
+if USE_B2_STORAGE:
+
+    STORAGES = {
+        "default": {
+            "BACKEND": "storages.backends.s3.S3Storage",
+        },
+        "staticfiles": {
+            "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        },
+    }
+
+    AWS_ACCESS_KEY_ID = config("B2_KEY_ID")
+    AWS_SECRET_ACCESS_KEY = config("B2_APPLICATION_KEY")
+
+    AWS_STORAGE_BUCKET_NAME = config("B2_BUCKET_NAME")
+
+    AWS_S3_REGION_NAME = config("B2_REGION")
+
+    AWS_S3_ENDPOINT_URL = (
+        f"https://s3.{AWS_S3_REGION_NAME}.backblazeb2.com"
+    )
+
+    AWS_DEFAULT_ACL = None
+
+    AWS_QUERYSTRING_AUTH = True
+
+    AWS_S3_FILE_OVERWRITE = False
 
 LOGIN_URL = "login"
 LOGIN_REDIRECT_URL = "platform_dashboard"
