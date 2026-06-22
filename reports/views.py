@@ -24,6 +24,7 @@ from .forms import ReportCreateForm, ReportReviewForm
 from .models import Report, ReportType, UploadedCSV, MissingTaxonDefinition, GeneratedReport
 from .services.taxa_description_service import enrich_taxa_csv
 from .services.pdf_report_service import generate_pdf_with_existing_builder
+from .services.metrics_processing_service import process_metrics_csv
 
 @login_required
 def platform_dashboard(request):
@@ -86,9 +87,14 @@ def create_report(request):
             )
 
             try:
-                metrics_csv_path = field_file_to_temp_path(
+                original_metrics_csv_path = field_file_to_temp_path(
                     uploaded_csv.original_metrics_csv,
                     suffix=".csv",
+                )
+
+                processed_metrics_csv_path = process_metrics_csv(
+                    metrics_csv_path=original_metrics_csv_path,
+                    report=report,
                 )
 
                 taxa_csv_path = field_file_to_temp_path(
@@ -123,7 +129,7 @@ def create_report(request):
 
                 generate_pdf_with_existing_builder(
                     report=report,
-                    metrics_csv_path=metrics_csv_path,
+                    metrics_csv_path=processed_metrics_csv_path,
                     enriched_taxa_csv_path=enriched_taxa_path,
                 )
 
@@ -205,9 +211,14 @@ def review_report(request, report_id):
             )
 
             if uploaded_csv and uploaded_csv.processed_taxa_csv:
-                metrics_csv_path = field_file_to_temp_path(
+                original_metrics_csv_path = field_file_to_temp_path(
                     uploaded_csv.original_metrics_csv,
                     suffix=".csv",
+                )
+
+                processed_metrics_csv_path = process_metrics_csv(
+                    metrics_csv_path=original_metrics_csv_path,
+                    report=reviewed_report,
                 )
 
                 processed_taxa_csv_path = field_file_to_temp_path(
@@ -217,7 +228,7 @@ def review_report(request, report_id):
 
                 generate_pdf_with_existing_builder(
                     report=reviewed_report,
-                    metrics_csv_path=metrics_csv_path,
+                    metrics_csv_path=processed_metrics_csv_path,
                     enriched_taxa_csv_path=processed_taxa_csv_path,
                 )
 

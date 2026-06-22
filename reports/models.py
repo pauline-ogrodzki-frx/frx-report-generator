@@ -88,6 +88,12 @@ class Report(models.Model):
         null=True
     )
 
+    processed_metrics_csv = models.FileField(
+        upload_to="uploads/processed_metrics/",
+        blank=True,
+        null=True
+    )
+
     kit_id = models.CharField(max_length=100, db_index=True)
     patient_name = models.CharField(max_length=255)
     physician_name = models.CharField(max_length=255)
