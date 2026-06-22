@@ -102,9 +102,11 @@ def create_report(request):
                     report_audience="adult",
                 )
 
+                safe_kit_id = report.kit_id.replace("/", "-").replace(" ", "_")
+
                 enriched_taxa_path = (
                     Path(taxa_csv_path).parent
-                    / f"{Path(taxa_csv_path).stem}_enriched.csv"
+                    / f"{safe_kit_id}_processed_taxa_enriched.csv"
                 )
 
                 enrichment_result["dataframe"].to_csv(
