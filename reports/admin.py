@@ -77,7 +77,11 @@ class ReportAdmin(admin.ModelAdmin):
 class UploadedCSVAdmin(admin.ModelAdmin):
     list_display = (
         "report",
-        "uploaded_at",
+        "original_metrics_csv",
+        "original_taxa_csv",
+        "processed_metrics_csv",
+        "processed_taxa_csv",
+        "created_at",
     )
 
 

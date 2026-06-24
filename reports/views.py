@@ -97,6 +97,14 @@ def create_report(request):
                     report=report,
                 )
 
+
+                with open(processed_metrics_csv_path, "rb") as processed_metrics_file:
+                    uploaded_csv.processed_metrics_csv.save(
+                        Path(processed_metrics_csv_path).name,
+                        File(processed_metrics_file),
+                        save=True,
+                    )
+
                 taxa_csv_path = field_file_to_temp_path(
                     uploaded_csv.original_taxa_csv,
                     suffix=".csv",
@@ -220,6 +228,13 @@ def review_report(request, report_id):
                     metrics_csv_path=original_metrics_csv_path,
                     report=reviewed_report,
                 )
+
+                with open(processed_metrics_csv_path, "rb") as processed_metrics_file:
+                    uploaded_csv.processed_metrics_csv.save(
+                        Path(processed_metrics_csv_path).name,
+                        File(processed_metrics_file),
+                        save=True,
+                    )
 
                 processed_taxa_csv_path = field_file_to_temp_path(
                     uploaded_csv.processed_taxa_csv,
