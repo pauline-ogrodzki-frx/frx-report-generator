@@ -21,7 +21,7 @@ from django.http import HttpResponseRedirect, FileResponse, Http404
 
 
 from .forms import ReportCreateForm, ReportReviewForm
-from .models import Report, ReportType, UploadedCSV, MissingTaxonDefinition, GeneratedReport, MissingMetricDefinition,
+from .models import Report, ReportType, UploadedCSV, MissingTaxonDefinition, GeneratedReport, MissingMetricDefinition
 
 from .services.taxa_description_service import enrich_taxa_csv
 from .services.pdf_report_service import generate_pdf_with_existing_builder
