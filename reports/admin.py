@@ -81,7 +81,6 @@ class UploadedCSVAdmin(admin.ModelAdmin):
         "original_taxa_csv",
         "processed_metrics_csv",
         "processed_taxa_csv",
-        "created_at",
     )
 
 
