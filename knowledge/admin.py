@@ -38,20 +38,22 @@ class TaxonDefinitionAdmin(admin.ModelAdmin):
 @admin.register(MetricDefinition)
 class MetricDefinitionAdmin(admin.ModelAdmin):
     list_display = (
-        "metric",
+        "metric_name",
+        "display_name",
         "category",
+        "source_system",
         "is_active",
-        "updated_at",
+        "created_at",
     )
 
     search_fields = (
-        "metric",
+        "metric_name",
+        "display_name",
         "category",
-        "general_description",
-        "frx_description",
     )
 
     list_filter = (
+        "source_system",
         "category",
         "is_active",
     )

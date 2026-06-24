@@ -21,10 +21,12 @@ from django.http import HttpResponseRedirect, FileResponse, Http404
 
 
 from .forms import ReportCreateForm, ReportReviewForm
-from .models import Report, ReportType, UploadedCSV, MissingTaxonDefinition, GeneratedReport
+from .models import Report, ReportType, UploadedCSV, MissingTaxonDefinition, GeneratedReport, MissingMetricDefinition,
+
 from .services.taxa_description_service import enrich_taxa_csv
 from .services.pdf_report_service import generate_pdf_with_existing_builder
 from .services.metrics_processing_service import process_metrics_csv
+from .services.metric_detection_service import detect_missing_metrics
 
 @login_required
 def platform_dashboard(request):
@@ -94,6 +96,11 @@ def create_report(request):
 
                 processed_metrics_csv_path = process_metrics_csv(
                     metrics_csv_path=original_metrics_csv_path,
+                    report=report,
+                )
+
+                detect_missing_metrics(
+                    metrics_csv_path=processed_metrics_csv_path,
                     report=report,
                 )
 
@@ -226,6 +233,11 @@ def review_report(request, report_id):
 
                 processed_metrics_csv_path = process_metrics_csv(
                     metrics_csv_path=original_metrics_csv_path,
+                    report=reviewed_report,
+                )
+
+                detect_missing_metrics(
+                    metrics_csv_path=processed_metrics_csv_path,
                     report=reviewed_report,
                 )
 
@@ -403,6 +415,31 @@ def missing_taxon_detail(request, taxonomy_name):
         {
             "taxonomy_name": taxonomy_name,
             "missing_taxa": missing_taxa,
+        },
+    )
+
+
+@login_required
+def missing_metrics_dashboard(request):
+    missing_metrics_summary = (
+        MissingMetricDefinition.objects
+        .values("metric_name", "category_title")
+        .annotate(
+            report_count=Count("report", distinct=True),
+            total_records=Count("id"),
+            unresolved_count=Count(
+                "id",
+                filter=models.Q(resolved=False),
+            ),
+        )
+        .order_by("-unresolved_count", "-report_count", "metric_name")
+    )
+
+    return render(
+        request,
+        "reports/missing_metrics_dashboard.html",
+        {
+            "missing_metrics_summary": missing_metrics_summary,
         },
     )
 

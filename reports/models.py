@@ -253,4 +253,30 @@ class MissingTaxonDefinition(models.Model):
         return f"{self.taxonomy_name} missing for {self.report.kit_id}"
 
 
+class MissingMetricDefinition(models.Model):
+    report = models.ForeignKey(
+        Report,
+        on_delete=models.CASCADE,
+        related_name="missing_metrics",
+    )
+    metric_name = models.CharField(max_length=255)
+    category_title = models.CharField(max_length=255, blank=True)
+    resolved = models.BooleanField(default=False)
+    detected_at = models.DateTimeField(auto_now_add=True)
+    reviewed_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+    )
+    reviewed_at = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        ordering = ["metric_name"]
+        unique_together = ("report", "metric_name")
+
+    def __str__(self):
+        return self.metric_name
+
+
 

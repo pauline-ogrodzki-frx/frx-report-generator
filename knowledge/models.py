@@ -64,52 +64,20 @@ class TaxonDefinition(models.Model):
 
 
 class MetricDefinition(models.Model):
-    category = models.CharField(max_length=255)
-
-    metric = models.CharField(
+    metric_name = models.CharField(max_length=255, unique=True)
+    display_name = models.CharField(max_length=255, blank=True)
+    category = models.CharField(max_length=255, blank=True)
+    description = models.TextField(blank=True)
+    source_system = models.CharField(
         max_length=255,
-        unique=True
+        default="Adult Gut Microbiome",
     )
-
-    general_description = models.TextField(
-        blank=True,
-        null=True
-    )
-
-    adult_description = models.TextField(
-        blank=True,
-        null=True
-    )
-
-    baby_description = models.TextField(
-        blank=True,
-        null=True
-    )
-
-    diet_lifestyle = models.TextField(
-        blank=True,
-        null=True
-    )
-
-    microba_description = models.TextField(
-        blank=True,
-        null=True
-    )
-
-    frx_description = models.TextField(
-        blank=True,
-        null=True
-    )
-
     is_active = models.BooleanField(default=True)
-
     created_at = models.DateTimeField(auto_now_add=True)
-
-    updated_at = models.DateTimeField(auto_now=True)
-
+    
     class Meta:
-        ordering = ["category", "metric"]
+        ordering = ["metric_name"]
 
     def __str__(self):
-        return self.metric
+        return self.metric_name
 

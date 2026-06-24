@@ -10,6 +10,7 @@ from .views import (
     missing_taxon_detail,
     mark_missing_taxon_resolved,
     create_taxon_definition_from_missing,
+    missing_metrics_dashboard,
     platform_dashboard,
     download_generated_pdf,
     download_processed_taxa_csv,
@@ -63,6 +64,11 @@ urlpatterns = [
         "missing-taxa/<path:taxonomy_name>/",
         missing_taxon_detail,
         name="missing_taxon_detail",
+    ),
+    path(
+        "missing-metrics/",
+        missing_metrics_dashboard,
+        name="missing_metrics_dashboard",
     ),
     path(
         "<int:report_id>/download-pdf/",
