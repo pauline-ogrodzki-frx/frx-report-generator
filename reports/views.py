@@ -346,11 +346,19 @@ def report_detail(request, report_id):
         id=report_id,
     )
 
+    uploaded_csv = (
+        UploadedCSV.objects
+        .filter(report=report)
+        .order_by("-id")
+        .first()
+    )
+
     return render(
         request,
         "reports/report_detail.html",
         {
             "report": report,
+            "uploaded_csv": uploaded_csv,
         },
     )
 
@@ -511,6 +519,27 @@ def download_processed_taxa_csv(request, report_id):
         as_attachment=True,
         filename=f"{report.kit_id}_processed_taxa.csv",
     )
+
+
+@login_required
+def download_processed_metrics_csv(request, report_id):
+    report = get_object_or_404(Report, id=report_id)
+
+    uploaded_csv = (
+        UploadedCSV.objects
+        .filter(report=report)
+        .order_by("-id")
+        .first()
+    )
+
+    if not uploaded_csv or not uploaded_csv.processed_metrics_csv:
+        raise Http404("Processed metrics CSV not found.")
+
+    return serve_field_file(
+        uploaded_csv.processed_metrics_csv,
+        f"{report.kit_id}_processed_metrics.csv",
+    )
+
 
 def serve_field_file(field_file, download_name):
     if not field_file:

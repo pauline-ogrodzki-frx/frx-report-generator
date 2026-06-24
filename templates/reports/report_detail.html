@@ -169,6 +169,12 @@
                 Original Metrics CSV
             </a>
 
+            {% if uploaded_csv and uploaded_csv.processed_metrics_csv %}
+                <a href="{% url 'download_processed_metrics_csv' report.id %}" class="btn btn-outline-primary">
+                    Processed Metrics CSV
+                </a>
+            {% endif %}
+
             <a class="button secondary" href="{% url 'download_original_taxa_csv' report.id %}">
                 Original Taxa CSV
             </a>
