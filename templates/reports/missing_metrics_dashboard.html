@@ -18,7 +18,11 @@
     <tbody>
         {% for metric in missing_metrics_summary %}
             <tr>
-                <td>{{ metric.metric_name }}</td>
+                <td>
+                    <a href="{% url 'missing_metric_detail' metric.metric_name %}">
+                        {{ metric.metric_name }}
+                    </a>
+                </td>
                 <td>{{ metric.category_title }}</td>
                 <td>{{ metric.report_count }}</td>
                 <td>{{ metric.unresolved_count }}</td>

@@ -420,31 +420,6 @@ def missing_taxon_detail(request, taxonomy_name):
 
 
 @login_required
-def missing_metrics_dashboard(request):
-    missing_metrics_summary = (
-        MissingMetricDefinition.objects
-        .values("metric_name", "category_title")
-        .annotate(
-            report_count=Count("report", distinct=True),
-            total_records=Count("id"),
-            unresolved_count=Count(
-                "id",
-                filter=models.Q(resolved=False),
-            ),
-        )
-        .order_by("-unresolved_count", "-report_count", "metric_name")
-    )
-
-    return render(
-        request,
-        "reports/missing_metrics_dashboard.html",
-        {
-            "missing_metrics_summary": missing_metrics_summary,
-        },
-    )
-
-
-@login_required
 def mark_missing_taxon_resolved(request, taxonomy_name):
     MissingTaxonDefinition.objects.filter(
         taxonomy_name=taxonomy_name,
@@ -516,6 +491,55 @@ def create_taxon_definition_from_missing(request, taxonomy_name):
             "existing_definition": existing_definition,
         },
     )
+
+
+
+@login_required
+def missing_metrics_dashboard(request):
+    missing_metrics_summary = (
+        MissingMetricDefinition.objects
+        .values("metric_name", "category_title")
+        .annotate(
+            report_count=Count("report", distinct=True),
+            total_records=Count("id"),
+            unresolved_count=Count(
+                "id",
+                filter=models.Q(resolved=False),
+            ),
+        )
+        .order_by("-unresolved_count", "-report_count", "metric_name")
+    )
+
+    return render(
+        request,
+        "reports/missing_metrics_dashboard.html",
+        {
+            "missing_metrics_summary": missing_metrics_summary,
+        },
+    )
+
+
+@login_required
+def missing_metric_detail(request, metric_name):
+    missing_metrics = (
+        MissingMetricDefinition.objects
+        .filter(metric_name=metric_name)
+        .select_related(
+            "report",
+            "report__report_type",
+        )
+        .order_by("-detected_at")
+    )
+
+    return render(
+        request,
+        "reports/missing_metric_detail.html",
+        {
+            "metric_name": metric_name,
+            "missing_metrics": missing_metrics,
+        },
+    )
+
 
 @login_required
 def download_generated_pdf(request, report_id):

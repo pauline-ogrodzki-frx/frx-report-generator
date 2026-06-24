@@ -11,6 +11,7 @@ from .views import (
     mark_missing_taxon_resolved,
     create_taxon_definition_from_missing,
     missing_metrics_dashboard,
+    missing_metric_detail,
     platform_dashboard,
     download_generated_pdf,
     download_processed_taxa_csv,
@@ -45,6 +46,7 @@ urlpatterns = [
         report_history,
         name="report_history",
     ),
+    #taxa
     path(
         "missing-taxa/",
         missing_taxa_dashboard,
@@ -65,11 +67,18 @@ urlpatterns = [
         missing_taxon_detail,
         name="missing_taxon_detail",
     ),
+    #metrics
     path(
         "missing-metrics/",
         missing_metrics_dashboard,
         name="missing_metrics_dashboard",
     ),
+    path(
+        "missing-metrics/<path:metric_name>/",
+        missing_metric_detail,
+        name="missing_metric_detail",
+    ),
+
     path(
         "<int:report_id>/download-pdf/",
         download_generated_pdf,

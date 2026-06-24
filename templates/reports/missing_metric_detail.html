@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>{{ metric_name }}</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Report</th>
+            <th>Patient</th>
+            <th>Kit ID</th>
+            <th>Category</th>
+            <th>Resolved</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for item in missing_metrics %}
+        <tr>
+            <td>
+                <a href="{% url 'report_detail' item.report.id %}">
+                    View Report
+                </a>
+            </td>
+            <td>{{ item.report.patient_name }}</td>
+            <td>{{ item.report.kit_id }}</td>
+            <td>{{ item.category_title }}</td>
+            <td>{{ item.resolved }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
