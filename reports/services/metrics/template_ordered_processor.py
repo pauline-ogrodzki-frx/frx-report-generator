@@ -86,9 +86,19 @@ def build_ordered_metric_context(
     recorded_missing_metric_names = set()
 
     for template in templates:
-        template_metric_name = template.metric_definition.metric_name
-        metric_lookup_key = normalize_metric_name(template_metric_name)
-        source_row = rows_by_metric_name.get(metric_lookup_key)
+        template_metric = template.metric_definition
+        template_metric_name = template_metric.metric_name
+
+        source_row = None
+        matched_metric_key = None
+
+        for csv_metric_key, row in rows_by_metric_name.items():
+            resolved_metric = metric_lookup.get(csv_metric_key)
+
+            if resolved_metric and resolved_metric.id == template_metric.id:
+                source_row = row
+                matched_metric_key = csv_metric_key
+                break
 
         metric_context = {
             "metric_name": template_metric_name,
@@ -109,7 +119,7 @@ def build_ordered_metric_context(
         ordered_metrics.append(metric_context)
 
         if source_row:
-            matched_metric_keys.add(metric_lookup_key)
+            matched_metric_keys.add(matched_metric_key)
         elif (
             record_missing
             and report is not None
