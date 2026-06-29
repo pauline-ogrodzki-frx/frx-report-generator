@@ -1,11 +1,11 @@
 {
     "output_folder": "/Users/paulineogrodzki/Documents/PAULINE PERSONAL/FRX/FRX Report Generator/frx-report-generator/generated_reports",
     "Physician Name": "Dr.",
-    "Patient Name": "Test 001",
-    "Kit ID": "FRXYUD818",
-    "Sampling Date": "2026-06-04",
-    "metrics_file": "/var/folders/l0/qqhy0ccd03s6yqfjtc3dtzs00000gn/T/FRXYUD818_processed_metrics.csv",
-    "taxa_file": "/var/folders/l0/qqhy0ccd03s6yqfjtc3dtzs00000gn/T/FRXYUD818_processed_taxa_enriched.csv",
+    "Patient Name": "Test 002",
+    "Kit ID": "FRXEGR568",
+    "Sampling Date": "2026-06-12",
+    "metrics_file": "/var/folders/l0/qqhy0ccd03s6yqfjtc3dtzs00000gn/T/FRXEGR568_processed_metrics.csv",
+    "taxa_file": "/var/folders/l0/qqhy0ccd03s6yqfjtc3dtzs00000gn/T/FRXEGR568_processed_taxa_enriched.csv",
     "enterotype": "Prevotella",
     "fixed_categories": {}
 }

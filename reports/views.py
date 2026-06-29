@@ -7,6 +7,9 @@ from io import TextIOWrapper
 
 from knowledge.forms import TaxonDefinitionForm, MetricDefinitionForm
 from knowledge.models import TaxonDefinition, MetricDefinition
+from knowledge.services.reference_range_service import (
+    detect_reference_range_changes,
+)
 
 from django.db import models
 from django.core.files import File
@@ -113,6 +116,12 @@ def create_report(request):
                 detect_missing_metrics(
                     metrics_csv_path=processed_metrics_csv_path,
                     report=report,
+                )
+
+                detect_reference_range_changes(
+                    metrics_csv_path=original_metrics_csv_path,
+                    report=report,
+                    report_type=report.report_type.slug,
                 )
 
 
@@ -250,6 +259,12 @@ def review_report(request, report_id):
                 detect_missing_metrics(
                     metrics_csv_path=processed_metrics_csv_path,
                     report=reviewed_report,
+                )
+
+                detect_reference_range_changes(
+                    metrics_csv_path=original_metrics_csv_path,
+                    report=reviewed_report,
+                    report_type=reviewed_report.report_type.slug,
                 )
 
                 with open(processed_metrics_csv_path, "rb") as processed_metrics_file:
