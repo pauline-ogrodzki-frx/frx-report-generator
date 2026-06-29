@@ -1,13 +1,11 @@
 {
     "output_folder": "/Users/paulineogrodzki/Documents/PAULINE PERSONAL/FRX/FRX Report Generator/frx-report-generator/generated_reports",
-    "Physician Name": "Dr. P",
-    "Patient Name": "Test Patient 8",
+    "Physician Name": "Dr.",
+    "Patient Name": "Test 001",
     "Kit ID": "FRXYUD818",
-    "Sampling Date": "2026-06-05",
-    "metrics_file": "/Users/paulineogrodzki/Documents/PAULINE PERSONAL/FRX/FRX Report Generator/frx-report-generator/media/uploads/original_metrics/FRXYUD818_metrics_ULM20d3.csv",
-    "taxa_file": "/Users/paulineogrodzki/Documents/PAULINE PERSONAL/FRX/FRX Report Generator/frx-report-generator/media/uploads/processed_taxa/FRXYUD818_taxa_PctXUXY_enriched.csv",
-    "enterotype": "Other",
-    "fixed_categories": {
-        "Common Probiotic Species": "yellow"
-    }
+    "Sampling Date": "2026-06-04",
+    "metrics_file": "/var/folders/l0/qqhy0ccd03s6yqfjtc3dtzs00000gn/T/FRXYUD818_processed_metrics.csv",
+    "taxa_file": "/var/folders/l0/qqhy0ccd03s6yqfjtc3dtzs00000gn/T/FRXYUD818_processed_taxa_enriched.csv",
+    "enterotype": "Prevotella",
+    "fixed_categories": {}
 }

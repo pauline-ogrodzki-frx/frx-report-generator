@@ -1,57 +1,31 @@
-import pandas as pd
+from pathlib import Path
 
-
-METRIC_NAME_MAP = {
-    # Current legacy-required names
-    "shannon diversity index": "Shannon diversity",
-    "shannon diversity": "Shannon diversity",
-    "host dna": "Host DNA",
-    "firmicutes": "Firmicutes",
-    "bacteroidota": "Bacteroidota",
-    "prevotella": "Prevotella",
-    "bacteroides": "Bacteroides",
-    "phocaeicola dorei": "Phocaeicola dorei",
-
-    # Manual review metric
-    "common probiotic species": "Common Probiotic Species",
-}
-
-
-def normalize_metric_name(value):
-    if pd.isna(value):
-        return value
-
-    raw_value = str(value).strip()
-    lookup_key = raw_value.lower()
-
-    return METRIC_NAME_MAP.get(lookup_key, raw_value)
+from reports.services.metrics.template_ordered_processor import (
+    process_metrics_with_template,
+)
 
 
 def process_metrics_csv(metrics_csv_path, report):
     """
     Creates a processed metrics CSV before PDF generation.
 
-    This keeps all lab-provided metrics, normalizes known metric names
-    required by the legacy PDF builder, and preserves unknown/new metrics.
+    The processed file is now generated through the database-driven
+    ReportMetricTemplate / MetricDefinition / MetricSynonym engine.
     """
 
-    df = pd.read_csv(metrics_csv_path)
-
-    if "name" not in df.columns:
-        raise ValueError(
-            "Metrics CSV must contain a 'name' column. "
-            f"Detected columns: {list(df.columns)}"
-        )
-
-    df["name"] = df["name"].apply(normalize_metric_name)
+    metrics_csv_path = Path(metrics_csv_path)
 
     safe_kit_id = str(report.kit_id or report.id).replace("/", "-").replace(" ", "_")
 
     processed_metrics_path = (
-        pd.io.common.os.path.dirname(metrics_csv_path)
-        + f"/{safe_kit_id}_processed_metrics.csv"
+        metrics_csv_path.parent / f"{safe_kit_id}_processed_metrics.csv"
     )
 
-    df.to_csv(processed_metrics_path, index=False)
+    process_metrics_with_template(
+        input_csv_path=metrics_csv_path,
+        output_csv_path=processed_metrics_path,
+        report=report,
+        report_type=report.report_type.slug,
+    )
 
-    return processed_metrics_path
+    return str(processed_metrics_path)
