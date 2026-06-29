@@ -170,7 +170,7 @@
             </a>
 
             {% if uploaded_csv and uploaded_csv.processed_metrics_csv %}
-                <a href="{% url 'download_processed_metrics_csv' report.id %}" class="btn btn-outline-primary">
+                <a class="button secondary" href="{% url 'download_processed_metrics_csv' report.id %}">
                     Processed Metrics CSV
                 </a>
             {% endif %}

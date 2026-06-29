@@ -5,8 +5,8 @@ import tempfile
 import shutil
 from io import TextIOWrapper
 
-from knowledge.forms import TaxonDefinitionForm
-from knowledge.models import TaxonDefinition
+from knowledge.forms import TaxonDefinitionForm, MetricDefinitionForm
+from knowledge.models import TaxonDefinition, MetricDefinition
 
 from django.db import models
 from django.core.files import File
@@ -48,6 +48,14 @@ def platform_dashboard(request):
         .order_by("-created_at")[:10]
     )
 
+    missing_metrics_total = MissingMetricDefinition.objects.count()
+    missing_metrics_unresolved = MissingMetricDefinition.objects.filter(
+        resolved=False,
+    ).count()
+    missing_metrics_resolved = MissingMetricDefinition.objects.filter(
+        resolved=True,
+    ).count()
+
     return render(
         request,
         "reports/platform_dashboard.html",
@@ -57,6 +65,9 @@ def platform_dashboard(request):
             "failed_reports": failed_reports,
             "unresolved_taxa": unresolved_taxa,
             "recent_reports": recent_reports,
+            "missing_metrics_total": missing_metrics_total,
+            "missing_metrics_unresolved": missing_metrics_unresolved,
+            "missing_metrics_resolved": missing_metrics_resolved,
         },
     )
 
@@ -537,6 +548,78 @@ def missing_metric_detail(request, metric_name):
         {
             "metric_name": metric_name,
             "missing_metrics": missing_metrics,
+        },
+    )
+
+@login_required
+def mark_missing_metric_resolved(request, metric_name):
+    MissingMetricDefinition.objects.filter(
+        metric_name=metric_name,
+    ).update(
+        resolved=True,
+        reviewed_by=request.user,
+        reviewed_at=timezone.now(),
+    )
+
+    messages.success(
+        request,
+        f"{metric_name} marked as resolved.",
+    )
+
+    return HttpResponseRedirect(
+        reverse("missing_metric_detail", args=[metric_name])
+    )
+
+@login_required
+def create_metric_definition_from_missing(request, metric_name):
+    existing_definition = MetricDefinition.objects.filter(
+        metric_name=metric_name,
+    ).first()
+
+    if request.method == "POST":
+        form = MetricDefinitionForm(
+            request.POST,
+            instance=existing_definition,
+        )
+
+        if form.is_valid():
+            metric_definition = form.save()
+
+            MissingMetricDefinition.objects.filter(
+                metric_name=metric_definition.metric_name,
+            ).update(
+                resolved=True,
+                reviewed_by=request.user,
+                reviewed_at=timezone.now(),
+            )
+
+            messages.success(
+                request,
+                f"Metric definition created for {metric_definition.metric_name}.",
+            )
+
+            return redirect(
+                "missing_metric_detail",
+                metric_name=metric_definition.metric_name,
+            )
+
+    else:
+        form = MetricDefinitionForm(
+            instance=existing_definition,
+            initial={
+                "metric_name": metric_name,
+                "source_system": "Adult Gut Microbiome",
+                "is_active": True,
+            },
+        )
+
+    return render(
+        request,
+        "reports/create_metric_definition_from_missing.html",
+        {
+            "form": form,
+            "metric_name": metric_name,
+            "existing_definition": existing_definition,
         },
     )
 

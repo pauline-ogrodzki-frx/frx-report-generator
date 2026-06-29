@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Create Metric Definition</h1>
+
+<p><strong>Metric:</strong> {{ metric_name }}</p>
+
+{% if existing_definition %}
+    <p>This metric already has a definition. Editing existing definition.</p>
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit" class="btn btn-primary">
+        Save Metric Definition
+    </button>
+</form>
+
+{% endblock %}

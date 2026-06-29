@@ -4,51 +4,105 @@
 
 <div class="page-header">
     <h1>FRX Report Generator Dashboard</h1>
-    <p>Generate reports, review previous outputs, resolve missing taxa, and manage the FRX knowledge base.</p>
+    <p>Generate reports, review outputs, resolve missing definitions, and manage the FRX knowledge base.</p>
 </div>
 
-<div class="card-grid">
-    <div class="card stat-card">
-        <strong>Total Reports</strong>
-        <div class="stat">{{ total_reports }}</div>
+<section class="dashboard-section">
+    <h2>Report Operations</h2>
+
+    <div class="card-grid">
+        <div class="card stat-card">
+            <strong>Total Reports</strong>
+            <div class="stat">{{ total_reports }}</div>
+        </div>
+
+        <div class="card stat-card">
+            <strong>Completed Reports</strong>
+            <div class="stat">{{ completed_reports }}</div>
+        </div>
+
+        <div class="card stat-card">
+            <strong>Failed Reports</strong>
+            <div class="stat">{{ failed_reports }}</div>
+        </div>
     </div>
 
-    <div class="card stat-card">
-        <strong>Completed Reports</strong>
-        <div class="stat">{{ completed_reports }}</div>
+    <div class="dashboard-actions">
+        <div class="card action-card">
+            <h2>Create Report</h2>
+            <p>Upload microbiome CSV files and generate a new FRX report.</p>
+            <a class="button" href="{% url 'create_report' %}">Create Report</a>
+        </div>
+
+        <div class="card action-card">
+            <h2>Report History</h2>
+            <p>Search, review, and download previously generated reports.</p>
+            <a class="button secondary" href="{% url 'report_history' %}">View History</a>
+        </div>
+    </div>
+</section>
+
+<section class="dashboard-section">
+    <h2>Knowledge Base</h2>
+
+    <div class="card-grid">
+        <div class="card stat-card">
+            <strong>Unresolved Missing Taxa</strong>
+            <div class="stat">{{ unresolved_taxa }}</div>
+        </div>
+
+        <div class="card stat-card">
+            <strong>Unresolved Missing Metrics</strong>
+            <div class="stat">{{ missing_metrics_unresolved }}</div>
+        </div>
+
+        <div class="card stat-card">
+            <strong>Total Missing Metrics</strong>
+            <div class="stat">{{ missing_metrics_total }}</div>
+        </div>
     </div>
 
-    <div class="card stat-card">
-        <strong>Unresolved Missing Taxa</strong>
-        <div class="stat">{{ unresolved_taxa }}</div>
-    </div>
-</div>
+    <div class="dashboard-actions">
+        <div class="card action-card">
+            <h2>Missing Taxa</h2>
+            <p>Review taxa missing from the FRX knowledge base and resolve definitions.</p>
+            <a class="button secondary" href="{% url 'missing_taxa_dashboard' %}">Review Taxa</a>
+        </div>
 
-<div class="dashboard-actions">
-    <div class="card action-card">
-        <h2>Create Report</h2>
-        <p>Upload microbiome CSV files and generate a new FRX report.</p>
-        <a class="button" href="{% url 'create_report' %}">Create Report</a>
-    </div>
+        <div class="card action-card">
+            <h2>Missing Metrics</h2>
+            <p>Review metrics missing from the FRX knowledge base and resolve definitions.</p>
+            <a class="button secondary" href="{% url 'missing_metrics_dashboard' %}">Review Metrics</a>
+        </div>
 
-    <div class="card action-card">
-        <h2>Report History</h2>
-        <p>Search, review, and download previously generated reports.</p>
-        <a class="button secondary" href="{% url 'report_history' %}">View History</a>
+        <div class="card action-card">
+            <h2>Knowledge Base</h2>
+            <p>Manage microorganism and metric definitions used during report generation.</p>
+            <a class="button secondary" href="{% url 'knowledge_dashboard' %}">Open Knowledge Base</a>
+        </div>
     </div>
+</section>
 
-    <div class="card action-card">
-        <h2>Missing Taxa</h2>
-        <p>Review taxa missing from the FRX knowledge base and resolve definitions.</p>
-        <a class="button secondary" href="{% url 'missing_taxa_dashboard' %}">Review Taxa</a>
-    </div>
+<section class="dashboard-section">
+    <h2>Platform Status</h2>
 
-    <div class="card action-card">
-        <h2>Knowledge Base</h2>
-        <p>Manage microorganism definitions used during report generation.</p>
-        <a class="button secondary" href="{% url 'knowledge_dashboard' %}">Open Knowledge Base</a>
+    <div class="card-grid">
+        <div class="card stat-card">
+            <strong>Resolved Missing Metrics</strong>
+            <div class="stat">{{ missing_metrics_resolved }}</div>
+        </div>
+
+        <div class="card stat-card">
+            <strong>Storage</strong>
+            <div class="stat">B2</div>
+        </div>
+
+        <div class="card stat-card">
+            <strong>Workflow</strong>
+            <div class="stat">Live</div>
+        </div>
     </div>
-</div>
+</section>
 
 <div class="card">
     <h2>Recent Reports</h2>

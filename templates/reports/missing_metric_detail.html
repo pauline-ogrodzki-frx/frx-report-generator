@@ -4,6 +4,14 @@
 
 <h1>{{ metric_name }}</h1>
 
+<a href="{% url 'create_metric_definition_from_missing' metric_name %}" class="btn btn-primary">
+    Create Metric Definition
+</a>
+
+<a href="{% url 'mark_missing_metric_resolved' metric_name %}" class="btn btn-outline-secondary">
+    Mark Resolved
+</a>
+
 <table>
     <thead>
         <tr>

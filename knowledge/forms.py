@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import TaxonDefinition
+from .models import TaxonDefinition, MetricDefinition
 
 
 class TaxonDefinitionForm(forms.ModelForm):
@@ -14,7 +14,6 @@ class TaxonDefinitionForm(forms.ModelForm):
             "frx_description",
             "th_description",
             "baby_description",
-            "industry_description",
             "is_active",
         ]
 
@@ -25,5 +24,16 @@ class TaxonDefinitionForm(forms.ModelForm):
             "frx_description": forms.Textarea(attrs={"rows": 8, "style": "width: 100%;"}),
             "th_description": forms.Textarea(attrs={"rows": 5, "style": "width: 100%;"}),
             "baby_description": forms.Textarea(attrs={"rows": 5, "style": "width: 100%;"}),
-            "industry_description": forms.Textarea(attrs={"rows": 5, "style": "width: 100%;"}),
         }
+
+class MetricDefinitionForm(forms.ModelForm):
+    class Meta:
+        model = MetricDefinition
+        fields = (
+            "metric_name",
+            "display_name",
+            "category",
+            "description",
+            "source_system",
+            "is_active",
+        )
