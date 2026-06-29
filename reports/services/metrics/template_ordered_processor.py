@@ -27,10 +27,12 @@ def build_metric_lookup():
     lookup = {}
 
     for metric in MetricDefinition.objects.all():
-        lookup[normalize_metric_name(metric.metric_name)] = metric
+        canonical_key = normalize_metric_name(metric.metric_name)
+        lookup[canonical_key] = metric
 
     for synonym in MetricSynonym.objects.select_related("metric_definition"):
-        lookup[normalize_metric_name(synonym.synonym)] = synonym.metric_definition
+        synonym_key = normalize_metric_name(synonym.synonym)
+        lookup[synonym_key] = synonym.metric_definition
 
     return lookup
 
@@ -69,7 +71,7 @@ def build_ordered_metric_context(
     fieldnames, metric_name_column, rows, rows_by_metric_name = read_metric_rows(
         input_csv_path
     )
-    
+
     metric_lookup = build_metric_lookup()
 
     templates = (
