@@ -11,6 +11,7 @@ from knowledge.models import (
     TaxonDefinition,
     MetricDefinition,
     MetricReferenceRangeChange,
+    MetricReferenceRangeSet,
 )
 from knowledge.services.reference_range_service import (
     detect_reference_range_changes,
@@ -702,6 +703,28 @@ def reference_range_change_detail(request, change_id):
         request,
         "reports/reference_range_change_detail.html",
         context,
+    )
+
+
+@login_required
+def reference_range_versions_dashboard(request):
+    reference_range_sets = (
+        MetricReferenceRangeSet.objects
+        .select_related("metric_definition")
+        .order_by("metric_definition__metric_name", "-version")
+    )
+
+    active_version_count = reference_range_sets.filter(is_active=True).count()
+    total_version_count = reference_range_sets.count()
+
+    return render(
+        request,
+        "reports/reference_range_versions_dashboard.html",
+        {
+            "reference_range_sets": reference_range_sets,
+            "active_version_count": active_version_count,
+            "total_version_count": total_version_count,
+        },
     )
 
 

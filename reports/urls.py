@@ -22,6 +22,7 @@ from .views import (
     download_processed_metrics_csv,
     reference_range_changes_dashboard,
     reference_range_change_detail,
+    reference_range_versions_dashboard,
 )
 
 urlpatterns = [
@@ -104,6 +105,12 @@ urlpatterns = [
         reference_range_change_detail,
         name="reference_range_change_detail",
     ),
+    path(
+        "reference-range-versions/",
+        reference_range_versions_dashboard,
+        name="reference_range_versions_dashboard",
+    ),
+
 
 
     path(

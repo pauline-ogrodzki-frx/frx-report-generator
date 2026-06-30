@@ -193,6 +193,44 @@ class ReportMetricTemplate(models.Model):
     category_title = models.CharField(max_length=255, blank=True)
     display_order = models.PositiveIntegerField(default=0)
 
+    # Report Layout Engine v2 fields
+    super_category_order = models.PositiveIntegerField(default=0)
+    category_order = models.PositiveIntegerField(default=0)
+    metric_order = models.PositiveIntegerField(default=0)
+
+    display_name_override = models.CharField(
+        max_length=255,
+        blank=True,
+        default="",
+    )
+
+    category_title_override = models.CharField(
+        max_length=255,
+        blank=True,
+        default="",
+    )
+
+    super_category_override = models.CharField(
+        max_length=255,
+        blank=True,
+        default="",
+    )
+
+    decimal_places = models.PositiveIntegerField(
+        blank=True,
+        null=True,
+    )
+
+    include_in_pdf = models.BooleanField(default=True)
+    preserve_repeated_rows = models.BooleanField(default=True)
+
+    legacy_range_template = models.JSONField(
+        blank=True,
+        null=True,
+    )
+
+    legacy_notes = models.TextField(blank=True, default="")
+
     is_percentage = models.BooleanField(default=False)
     use_italics = models.BooleanField(default=False)
     comments = models.TextField(blank=True)
@@ -201,11 +239,17 @@ class ReportMetricTemplate(models.Model):
     is_active = models.BooleanField(default=True)
 
     class Meta:
-        ordering = ["display_order", "metric_definition__metric_name"]
+        ordering = [
+            "super_category_order",
+            "category_order",
+            "metric_order",
+            "display_order",
+            "metric_definition__metric_name",
+        ]
 
     def __str__(self):
         return f"{self.report_type} - {self.metric_definition.metric_name}"
-
+        
 
 class MetricReferenceRangeSet(models.Model):
     metric_definition = models.ForeignKey(
