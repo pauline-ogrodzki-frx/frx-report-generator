@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 
 class TaxonDefinition(models.Model):
@@ -292,6 +293,8 @@ class MetricReferenceRangeChange(models.Model):
 
     detected_signature = models.TextField()
     approved_signature = models.TextField(blank=True, default="")
+    
+    proposed_rows = models.JSONField(blank=True, null=True)
 
     status = models.CharField(
         max_length=20,
@@ -301,6 +304,22 @@ class MetricReferenceRangeChange(models.Model):
 
     detected_at = models.DateTimeField(auto_now_add=True)
     reviewed_at = models.DateTimeField(blank=True, null=True)
+
+    reviewed_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+        related_name="reviewed_reference_range_changes",
+    )
+
+    approved_range_set = models.ForeignKey(
+        "knowledge.MetricReferenceRangeSet",
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+        related_name="approved_changes",
+    )
 
     notes = models.TextField(blank=True, default="")
 

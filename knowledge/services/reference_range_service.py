@@ -123,9 +123,13 @@ def detect_reference_range_changes(metrics_csv_path, report=None, report_type="a
             unresolved_metrics.append(raw_metric_name)
             continue
 
-        detected_signature = build_reference_range_signature(
-            metric_df.to_dict("records")
+        proposed_rows = json.loads(
+            build_reference_range_signature(
+                metric_df.to_dict("records")
+            )
         )
+
+        detected_signature = json.dumps(proposed_rows, sort_keys=True)
 
         approved_signature = get_active_reference_signature(
             metric_definition=metric_definition,
@@ -140,6 +144,7 @@ def detect_reference_range_changes(metrics_csv_path, report=None, report_type="a
                 detected_signature=detected_signature,
                 defaults={
                     "approved_signature": approved_signature,
+                    "proposed_rows": proposed_rows,
                     "status": MetricReferenceRangeChange.STATUS_OPEN,
                 },
             )

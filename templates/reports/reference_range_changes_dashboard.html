@@ -50,6 +50,30 @@
                             href="{% url 'reference_range_change_detail' change.id %}">
                                 Review
                             </a>
+
+                            {% if change.status == "open" %}
+                                <form
+                                    method="post"
+                                    action="{% url 'knowledge:approve_reference_range_change' change.id %}"
+                                    style="display:inline;"
+                                >
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-success btn-sm">
+                                        Approve
+                                    </button>
+                                </form>
+
+                                <form
+                                    method="post"
+                                    action="{% url 'knowledge:ignore_reference_range_change' change.id %}"
+                                    style="display:inline;"
+                                >
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-secondary btn-sm">
+                                        Ignore
+                                    </button>
+                                </form>
+                            {% endif %}
                         </td>
                     </tr>
                 {% endfor %}
