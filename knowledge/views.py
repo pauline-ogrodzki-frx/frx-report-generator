@@ -73,7 +73,7 @@ def approve_reference_range_change_view(request, change_id):
             f"Could not approve reference range change: {exc}",
         )
 
-    return redirect("/reports/reference-range-changes/")
+    return redirect("reference_range_changes_dashboard")
 
 
 @staff_member_required
@@ -95,4 +95,4 @@ def ignore_reference_range_change_view(request, change_id):
         "Reference range change ignored.",
     )
 
-    return redirect("/reports/reference-range-changes/")
+    return redirect("reference_range_changes_dashboard")

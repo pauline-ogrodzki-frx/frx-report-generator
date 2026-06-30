@@ -1,9 +1,9 @@
 {
     "output_folder": "/Users/paulineogrodzki/Documents/PAULINE PERSONAL/FRX/FRX Report Generator/frx-report-generator/generated_reports",
     "Physician Name": "Dr.",
-    "Patient Name": "Test 108",
+    "Patient Name": "Test 109",
     "Kit ID": "FRXEGR568",
-    "Sampling Date": "2026-06-05",
+    "Sampling Date": "2026-06-14",
     "metrics_file": "/var/folders/l0/qqhy0ccd03s6yqfjtc3dtzs00000gn/T/FRXEGR568_processed_metrics.csv",
     "taxa_file": "/var/folders/l0/qqhy0ccd03s6yqfjtc3dtzs00000gn/T/FRXEGR568_processed_taxa_enriched.csv",
     "enterotype": "Bacteroides",
