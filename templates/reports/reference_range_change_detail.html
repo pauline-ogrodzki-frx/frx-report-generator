@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Reference Range Change Review</h1>
+    <p>{{ change.metric_definition.metric_name }}</p>
+</div>
+
+<div class="content-card">
+    <h2>Change Details</h2>
+
+    <p><strong>Status:</strong> {{ change.get_status_display }}</p>
+
+    <p>
+        <strong>Report:</strong>
+        {% if change.report %}
+            {{ change.report.kit_id }}
+        {% else %}
+            —
+        {% endif %}
+    </p>
+
+    <p><strong>Detected:</strong> {{ change.detected_at|date:"Y-m-d H:i" }}</p>
+</div>
+
+<div class="content-card">
+    <h2>Approved vs Incoming Reference Ranges</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Approved Current Range</th>
+                <th>Incoming Lab Range</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for approved, detected in paired_rows %}
+                <tr>
+                    <td>
+                        <strong>{{ approved.evaluation }}</strong><br>
+                        {{ approved.range_lower }} – {{ approved.range_upper }}<br>
+                        Colour: {{ approved.range_color }}<br>
+                        Category: {{ approved.category_title }}
+                    </td>
+                    <td>
+                        <strong>{{ detected.evaluation }}</strong><br>
+                        {{ detected.range_lower }} – {{ detected.range_upper }}<br>
+                        Colour: {{ detected.range_color }}<br>
+                        Category: {{ detected.category_title }}
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="2">No comparison rows available.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="content-card">
+    <a class="btn btn-secondary" href="{% url 'reference_range_changes_dashboard' %}">
+        Back to Reference Range Changes
+    </a>
+</div>
+{% endblock %}

@@ -20,6 +20,8 @@ from .views import (
     download_original_metrics_csv,
     download_original_taxa_csv,
     download_processed_metrics_csv,
+    reference_range_changes_dashboard,
+    reference_range_change_detail,
 )
 
 urlpatterns = [
@@ -91,6 +93,16 @@ urlpatterns = [
         "missing-metrics/<path:metric_name>/",
         missing_metric_detail,
         name="missing_metric_detail",
+    ),
+    path(
+        "reference-range-changes/",
+        reference_range_changes_dashboard,
+        name="reference_range_changes_dashboard",
+    ),
+    path(
+        "reference-range-changes/<int:change_id>/",
+        reference_range_change_detail,
+        name="reference_range_change_detail",
     ),
 
 

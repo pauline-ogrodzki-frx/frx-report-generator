@@ -1,12 +1,17 @@
 from pathlib import Path
 
 import csv
+import json
 import tempfile
 import shutil
 from io import TextIOWrapper
 
 from knowledge.forms import TaxonDefinitionForm, MetricDefinitionForm
-from knowledge.models import TaxonDefinition, MetricDefinition
+from knowledge.models import (
+    TaxonDefinition,
+    MetricDefinition,
+    MetricReferenceRangeChange,
+)
 from knowledge.services.reference_range_service import (
     detect_reference_range_changes,
 )
@@ -636,6 +641,67 @@ def create_metric_definition_from_missing(request, metric_name):
             "metric_name": metric_name,
             "existing_definition": existing_definition,
         },
+    )
+
+
+@login_required
+def reference_range_changes_dashboard(request):
+    changes = (
+        MetricReferenceRangeChange.objects
+        .select_related("metric_definition", "report")
+        .order_by("-detected_at")
+    )
+
+    open_changes = changes.filter(
+        status=MetricReferenceRangeChange.STATUS_OPEN
+    )
+
+    context = {
+        "changes": changes,
+        "open_changes": open_changes,
+        "open_change_count": open_changes.count(),
+        "total_change_count": changes.count(),
+    }
+
+    return render(
+        request,
+        "reports/reference_range_changes_dashboard.html",
+        context,
+    )
+
+
+@login_required
+def reference_range_change_detail(request, change_id):
+    change = get_object_or_404(
+        MetricReferenceRangeChange.objects.select_related(
+            "metric_definition",
+            "report",
+        ),
+        id=change_id,
+    )
+
+    approved_rows = []
+    detected_rows = []
+
+    if change.approved_signature:
+        approved_rows = json.loads(change.approved_signature)
+
+    if change.detected_signature:
+        detected_rows = json.loads(change.detected_signature)
+
+    paired_rows = zip(approved_rows, detected_rows)
+
+    context = {
+        "change": change,
+        "approved_rows": approved_rows,
+        "detected_rows": detected_rows,
+        "paired_rows": paired_rows,
+    }
+
+    return render(
+        request,
+        "reports/reference_range_change_detail.html",
+        context,
     )
 
 

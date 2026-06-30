@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Reference Range Changes</h1>
+    <p>Review laboratory reference-range changes detected during report generation.</p>
+</div>
+
+<div class="dashboard-grid">
+    <div class="dashboard-card">
+        <h3>Open Changes</h3>
+        <p class="dashboard-number">{{ open_change_count }}</p>
+    </div>
+
+    <div class="dashboard-card">
+        <h3>Total Detected</h3>
+        <p class="dashboard-number">{{ total_change_count }}</p>
+    </div>
+</div>
+
+<div class="content-card">
+    <h2>Detected Changes</h2>
+
+    {% if changes %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>Report</th>
+                    <th>Status</th>
+                    <th>Detected</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for change in changes %}
+                    <tr>
+                        <td>{{ change.metric_definition.metric_name }}</td>
+                        <td>
+                            {% if change.report %}
+                                {{ change.report.kit_id }}
+                            {% else %}
+                                —
+                            {% endif %}
+                        </td>
+                        <td>{{ change.get_status_display }}</td>
+                        <td>{{ change.detected_at|date:"Y-m-d H:i" }}</td>
+                        <td>
+                            <a class="btn btn-primary btn-sm"
+                            href="{% url 'reference_range_change_detail' change.id %}">
+                                Review
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No reference range changes detected.</p>
+    {% endif %}
+</div>
+{% endblock %}
